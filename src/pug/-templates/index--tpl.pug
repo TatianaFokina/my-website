@@ -1,0 +1,15 @@
+include ../-helpers/variables
+include ../-helpers/mixins
+
+doctype html
+html(lang="ru")
+	include -templates-includes/head--inc
+	body
+
+		//-Шапка
+		include -templates-includes/header--inc
+
+		block content
+
+		//-Подвал
+		include -templates-includes/footer--inc

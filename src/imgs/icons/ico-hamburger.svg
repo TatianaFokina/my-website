@@ -1,0 +1,8 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 15.08">
+  <title>ico-humburger</title>
+  <g id="TabBar-Icons">
+    <g id="Hamburger">
+      <path d="M0,0H25V3H0V0ZM0,6H25v3H0V6Zm0,6H25v3H0v-3Z" transform="translate(0)" style="fill: #009688"/>
+    </g>
+  </g>
+</svg>

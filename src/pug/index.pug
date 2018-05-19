@@ -1,0 +1,154 @@
+extends -templates/index--tpl.pug
+
+block content
+	.content
+
+		.striped-section
+			.container-fluid
+				//-My photo & information about me
+				.hero-card
+					.row.row--no-gutters
+						.col--md-4.col--lg-6
+							//-Photo
+							picture
+								source(media='(min-width: 1200px)' srcset='/imgs/hero-photo.jpg')
+								source(media='(min-width: 768px)' srcset='/imgs/hero-photo@350.jpg')
+								source(media='(min-width: 576px)' srcset='/imgs/hero-photo@737.jpg')
+								img.hero-photo(src='/imgs/hero-photo.jpg' alt='Так выглядит Татьяна')
+						//-Information about me
+						.col--md-8.col--lg-6.hero-card-inf
+							main
+								h2(id='aboutMe') Обо мне
+								p Параллельно с основной работой в качестве контент-менеджера я верстаю сайты.
+								p Мне нравится учиться, приобретать новые навыки и знания и постоянно совершенствоваться. Одна из моих главный профессиональных целей — стать отличным front-end разработчиком, доводящим каждый свой проект до максимально возможного совершенства. В мои ближайшие планы входит изучение JS и освоение современных фреймворков.
+
+				//-My advantages
+				.advantages
+					+advantage('/imgs/index-comm.svg', 'Всегда на связи')
+					+advantage('/imgs/index-deadline.svg', 'Не нарушаю сроки')
+					+advantage('/imgs/index-price.svg', 'Ставка: 300 руб./ч')
+
+		.striped-section
+			.container-fluid
+				//-Portfolio
+				h2(id='portfolio') Портфолио
+				.row
+					include index_portfolio
+
+		.striped-section
+			.container-fluid
+				//-My CV
+				h2(id='cv') Резюме
+				//-Key skills
+				h3 Ключевые навыки
+				ul.knowledge-list
+					li Вёрстка по PSD-макетам и прототипам сайтов.
+					li Адаптивная и кроссбраузерная вёрстка, Flexbox и CSS Grid.
+					li Методология БЭМ.
+					li Перфекционист и уделяю внимание даже самым незначительным деталям, старясь довести всё до идеального состояния.
+					li Навыки тайм-менеджмента: умею расставлять правильные приоритеты и сама организовывать рабочие процессы.
+					li Английский на уровне Intermediate и норвежский со словарём (bokmål).
+					li Основы типографики.
+					li Внимательно слежу за последними тенденциями во front-end разработке, постоянно осваиваю новые методы и инструменты.
+
+				//-Professional skills
+				h3 Профессиональные качества
+				p Ответственность, работоспособность, исполнительность, вовлечённость в проект, дипломатичность, внимательность, усидчивость, организованность, аккуратность.
+
+				//-Tools
+				h3 Используемые инструменты
+				.tools
+					h4 Языки, препроцессоры, библиотеки
+					ul.knowledge-list
+						li HTML5, CSS3.
+						li Pug.
+						li Stylus, SASS/SCSS, LESS.
+						li jQuery.
+						li Gulp, PostCSS, Autoprefixer.
+						li Собственный CSS-фреймворк / Bootstrap 3 и 4.
+				.tools
+					h4 Редакторы кода
+					ul.knowledge-list
+						li WebStorm/PhpStorm.
+						li Sublime Text.
+						li CodePen.
+				.tools
+					h4 Управление версиями
+					ul.knowledge-list
+						li Git.
+						li GitHub.
+						li GitLab.
+				.tools
+					h4 Работа с дизайн-макетами
+					ul.knowledge-list
+						li Figma.
+						li Zeplin.
+						li Invision.
+						li Adobe Photoshop.
+						li Adobe Illustrator.
+				.tools
+					h4 Управление проектами и коммуникация
+					ul.knowledge-list
+						li Jira.
+						li Trello.
+						li Slack.
+						li Telegram.
+						li Skype.
+
+				//-Experience and education
+				h3 Образование и опыт работы
+				.xp-timeline
+					.xp-card.media
+						.xp-card__col-1
+							.xp-card__date C 2017
+						.xp-card__col-2.media-body
+							.xp-card__name HTML-кодер на фрилансе.
+					.xp-card.media
+						.xp-card__col-1
+							.xp-card__date С 2016
+						.xp-card__col-2.media-body
+							.xp-card__name Контент-менеджер в центре дистанционного обучения "АКАТО"
+							.xp-card__desc
+								p Наполняю сайт компании контентом и актуализирую информацию, занимаюсь вёрсткой рассылочных писем и отдельных страниц, создаю макеты страниц и пишу технические задания, готовлю рекламные веб-баннеры, монтирую видео, веду канал на YouTube и группу во ВКонтакте.<br>
+								p Работаю в условиях многозадачности и плавающих крайних сроков, поэтому авральный режим работы и ведение параллельно нескольких проектов не пугает (даже наоборот).
+					.xp-card.media
+						.xp-card__col-1
+							.xp-card__date 2016
+						.xp-card__col-2.media-body
+							.xp-card__name Начала изучать веб-разработку, прошла курсы HTML Academy.
+					.xp-card.media
+						.xp-card__col-1
+							.xp-card__date 2012–2014
+						.xp-card__col-2.media-body
+							.xp-card__name "Скандинавская школа", Санкт-Петербург
+							.xp-card__desc
+								p Изучала норвежский язык.
+					.xp-card.media
+						.xp-card__col-1
+							.xp-card__date 2010–2015
+						.xp-card__col-2.media-body
+							.xp-card__name Санкт-Петербургский государственный институт культуры
+							.xp-card__desc
+								p Окончила с отличием вуз по специальности "Технолог автоматизированных информационных ресурсов".
+
+				//-Personal qualities
+				h3 Личностные качества
+				P Грамотные речь и письмо, эрудированность, любознательность, перфекционизм, отзывчивость, дружелюбность, отсутствие вредных привычек.
+
+				//-Hobby
+				h3 Увлечения
+				P Современные технологии, информационная безопасность, европейская и японская литература и кинематограф XX века, немецкая философия, postcrossing, велосипедные и самокатные прогулки, электронная музыка 1980-х, аналоговые синтезаторы, компьютерные игры, шаверма.
+
+		.striped-section
+			.container-fluid
+				//-Contacts
+				h2(id='contacts') Контакты
+				h3 Для связи со мной
+				+contacts('mailto:fokinatatian@gmail.com', 'fokinatatian@gmail.com', '--mail')
+				+contacts('skype:falskenpirogen?chat', 'Telegram', '--telegram')
+				+contacts('skype:falskenpirogen?chat', 'Skype', '--skype')
+				+contacts('https://www.facebook.com/profile.php?id=100001031453259', 'Facebook', '--fb')
+				h3 Сайты
+				+contacts('https://spb.hh.ru/resume/e681acbdff0294fb250039ed1f6137576a6544', 'Резюме на HeadHunter', '--hh')
+				+contacts('https://github.com/TatianaFokina?tab=repositories', 'GitHub', '--github')
+				+contacts('https://www.fl.ru/users/fokinatatiana/', 'FL.ru', '--fl')

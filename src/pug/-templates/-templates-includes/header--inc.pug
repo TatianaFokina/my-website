@@ -1,0 +1,24 @@
+header
+	.header-flex
+		.header-inf.media
+			.header-logo(aria-label='Лого')
+			.header-name
+				.header-name__title(role='heading' aria-level='1' aria-label='Название сайта')
+					| Татьяна Фокина
+				.header-name__subtitle(role='heading' aria-level='3')
+					| HTML‐верстальщик
+
+		//-Main menu
+		button.hamburger(aria-label='Меню').js-expand-lnk
+		.nav-wrp.js-expand-block
+			nav.nav
+				a(href='#aboutMe').nav-item
+					span.nav-item-inr Обо мне
+				a(href='#portfolio').nav-item
+					span.nav-item-inr Портфолио
+				a(href='#cv').nav-item
+					span.nav-item-inr Резюме
+				a(href='#contacts').nav-item
+					span.nav-item-inr Контакты
+				a(href='https://github.com/TatianaFokina' target='_blank' rel='noopener noreferrer').nav-item.nav-item__github
+					span.nav-item-inr GitHub

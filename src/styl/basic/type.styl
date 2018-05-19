@@ -1,0 +1,119 @@
+// ===================================================================================================================
+// Headings
+// ===================================================================================================================
+
+h1,
+h2,
+h3,
+h4
+	margin 0
+	font-weight bold
+	line-height $headings-line-height
+	color $headings-color
+
+h1
+	font-size $font-size-h1
+
+h2
+	margin-bottom 1.5rem // 24px
+	padding-bottom 0.5rem // 8px
+	font-size $font-size-h2
+	border-bottom 3px solid
+
+h3
+	margin-top 1.5rem // 24px
+	margin-bottom 1rem // 16px
+	font-size $font-size-h3
+
+h4
+	margin-top 1.5rem // 24px
+	margin-bottom 1rem // 16px
+	font-size $font-size-h4
+	color $brand-light-gray
+
+
+
+
+// ===================================================================================================================
+// Paragraph
+// ===================================================================================================================
+
+p
+	margin-top 0
+	&:not(:last-of-type)
+		margin-bottom 1rem
+
+
+
+
+// ===================================================================================================================
+// Lists
+// ===================================================================================================================
+
+.list-unstyled
+	list-unstyled()
+
+// Inline turns list items into inline-block
+.list-inline
+	list-unstyled()
+
+.list-inline-item
+	display inline-block
+	&:not(:last-child)
+		margin-right $list-inline-padding
+
+ol,
+ul,
+dl
+	//margin 0
+	padding-left 0
+
+ol ol,
+ul ul,
+ol ul,
+ul ol
+	margin-bottom 0
+
+
+
+
+// ===================================================================================================================
+// Horizontal rules
+// ===================================================================================================================
+
+hr
+	margin-top 1.2rem
+	margin-bottom 1.2rem
+	border 0
+	border-top 1px solid rgba($brand-black, 0.1)
+
+
+
+
+//==============
+// Text Variants
+//==============
+
+// Aling
+.text
+	+bem-variant(left)
+		text-align left
+	+bem-variant(right)
+		text-align right
+	+bem-variant(center)
+		text-align center
+	+bem-variant(justify)
+		text-align justify !important
+	+bem-variant(text-nowrap)
+		white-space nowrap !important
+	+bem-variant(truncate)
+		text-truncate()
+
+// Transformation
+.text
+	+bem-variant(lowercase)
+		text-transform lowercase !important
+	+bem-variant(uppercase)
+		text-transform uppercase !important
+	+bem-variant(capitalize)
+		text-transform capitalize !important

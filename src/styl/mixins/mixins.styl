@@ -1,0 +1,198 @@
+// ===================================================================================================================
+// Core CSS
+// ===================================================================================================================
+
+// Media query
+
+media($breakpoint-name)
+	$val = $breakpoints-and-widths[$breakpoint-name]
+	if $val["breakpoint"] != 0
+		@media (min-width: unquote($val["breakpoint"]))
+			{block}
+
+media-down($breakpoint-name)
+	$val = $breakpoints-and-widths[$breakpoint-name]
+	if $val["breakpoint"] != 0
+		@media (max-width: unquote($val["breakpoint"]) - 1)
+			{block}
+
+// Создаёт медиазапросы
+media-breakpoint-up($name, $width-min)
+	if $width-min > 0
+		@media (min-width: $width-min)
+			{block}
+media-breakpoint-down($name, $width-max)
+	if $width-max > 0
+		@media (max-width: $width-max)
+			{block}
+
+
+
+
+// ===================================================================================================================
+// Clearfix
+// ===================================================================================================================
+
+clearfix()
+	&:after
+		content ''
+		display block
+		clear both
+
+
+
+
+// ===================================================================================================================
+// Floats
+// ===================================================================================================================
+
+float-left()
+	float left !important
+
+float-right()
+	float right !important
+
+float-none()
+	float none !important
+
+
+
+
+// ===================================================================================================================
+// Single side border-radius
+// ===================================================================================================================
+
+border-radius($radius = 3px)
+	border-radius $radius
+
+border-top-radius($radius)
+	border-top-right-radius $radius
+	border-top-left-radius $radius
+
+border-right-radius($radius)
+	border-bottom-right-radius $radius
+	border-top-right-radius $radius
+
+border-bottom-radius($radius)
+	border-bottom-right-radius $radius
+	border-bottom-left-radius $radius
+
+border-left-radius($radius)
+	border-bottom-left-radius $radius
+	border-top-left-radius $radius
+
+
+
+
+// ===================================================================================================================
+// Image
+// ===================================================================================================================
+
+// Responsive image
+img-fluid()
+	width 100%
+	height auto
+	display block
+
+// Retina image
+img-retina($file-1x, $file-2x, $width-1x, $height-1x)
+	background-image url($file-1x)
+	// Autoprefixer takes care of adding -webkit-min-device-pixel-ratio and -o-min-device-pixel-ratio, but doesn't convert dppx=>dpi
+	@media only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)
+		background-image url($file-2x)
+		background-size $width-1x $height-1x
+
+// Sizing shortcuts
+size($width, $height = $width)
+	width $width
+	height $height
+
+
+
+
+// ===================================================================================================================
+// Lists
+// ===================================================================================================================
+
+// Unstyled keeps list items block level, just removes default browser padding and list-style
+list-unstyled()
+	padding-left 0
+	list-style none
+
+
+
+
+// ===================================================================================================================
+// Navigation
+// ===================================================================================================================
+
+// Horizontal dividers
+nav-divider($color = #e5e5e5)
+	height 1px
+	margin 1.5rem 0
+	overflow hidden
+	background-color $color
+
+
+
+
+// ===================================================================================================================
+// Pagination
+// ===================================================================================================================
+
+pagination-size($padding-y, $padding-x, $font-size, $line-height, $border-radius)
+	.page-link
+		padding $padding-y $padding-x
+		font-size $font-size
+	.page-item
+		&:first-child
+			.page-link
+				border-left-radius(2px)
+		&:last-child
+			.page-link
+				border-right-radius(2px)
+
+
+
+
+// ===================================================================================================================
+// Typography
+// ===================================================================================================================
+
+reset-text()
+	font-family $font-family-base
+	font-style normal
+	//font-weight $font-weight-normal
+	letter-spacing normal
+	line-break auto
+	line-height $line-height-base
+	text-align left
+	//text-align start
+	text-decoration none
+	text-shadow none
+	text-transform none
+	white-space normal
+	word-break normal
+	word-spacing normal
+
+// CSS image replacement
+text-hide()
+	font 0 / 0 a
+	color transparent
+	text-shadow none
+	background-color transparent
+	border 0
+
+// Text truncate
+text-truncate()
+	overflow hidden
+	text-overflow ellipsis
+	white-space nowrap
+
+
+
+
+
+// Visibility
+invisible()
+	visibility hidden !important

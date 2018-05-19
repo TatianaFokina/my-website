@@ -1,0 +1,30 @@
+a
+	color $brand-1
+	text-decoration none
+	transition color 0.2s ease
+	& span
+		thin-underline()
+	&:hover
+		color darken($brand-1, 60%)
+	
+	&:active
+		color #f00
+	
+	
+	// Outline for links and work card
+	&:focus
+		outline 3px dotted $brand-3
+		outline-offset 2px
+
+// Outline for nav
+nav a
+	&:focus
+		outline 3px dotted $brand-3
+		outline-offset 0
+		background lighten($brand-light-gray, 86%)
+
+//a:not([href]):not([tabindex])
+//	color: inherit
+//	text-decoration: none
+//	&:focus
+//		outline: 0

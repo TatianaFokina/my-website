@@ -1,0 +1,49 @@
+//-Repeat
+mixin repeat(limit)
+	- for (var i = 1; i <= limit; i++)
+		block
+
+
+
+
+//-Work image without caption
+mixin project-img(src)
+	img(src=src alt='').work-img.img-fluid
+
+//-Work image with caption and cut link
+mixin project-img-with-caption(src, caption)
+	.work-img.work-img--with-caption
+		figure.work-img-inr
+			img(src='/imgs/portfolio' + src alt='').img-fluid
+			figcaption.work-img__caption= caption
+
+
+
+
+//-Advantages
+mixin advantage(url, text)
+	.advantage.media
+		.advantage__img(style="background-image: url('" + url +"');")
+		.advantage__text= text
+
+
+
+
+//-Contact icons
+mixin contacts(href, text, classPref)
+	ul.contact-sprite
+		li.contact-link
+			a(href= href target='_blank' rel='noopener noreferrer').contact-link__icon(class='contact-link__icon' + classPref)
+				span.contact-link__text= text
+
+
+
+
+//-Work card
+mixin work(name, desc, link, img)
+	.col--md-6.col--lg-6
+		a.work-card(href='/portfolio/' + link)
+			.work-card__img(style="background-image: url(" + img + ");")
+			.work-card__caption
+				.work-card__caption__name= name
+				.work-card__caption__desc= desc

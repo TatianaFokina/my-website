@@ -1,0 +1,88 @@
+// ===================================================================================================================
+// Underline
+// ===================================================================================================================
+
+underline($decoration=ink)
+	text-decoration-skip $decoration
+
+// Thin underline
+thin-underline($border-color=$links-color, $opacity=25%, $border-color_hover=$links-color--hover)
+	border-bottom 1px solid
+	border-bottom-color alpha($border-color, $opacity)
+	//&:hover
+	//	border-color alpha($border-color_hover, $opacity)
+
+thin-underline_colors($border-color=$links-color, $opacity=30%, $border-color_hover=$links_color-hover, $opacity_hover=30%)
+	border-bottom-color alpha($border-color, $opacity)
+	&:hover
+		border-color alpha($border-color_hover, $opacity_hover)
+
+
+
+
+// ===================================================================================================================
+// Buttons
+// ===================================================================================================================
+
+button-variant-static($color, $bg, $border)
+	color $color
+	background-color $bg
+	border $border
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] &
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&.active
+			color $color
+			background-color $bg
+
+
+
+
+// ===================================================================================================================
+// SVG icons before line
+// ===================================================================================================================
+
+link-icon($width, $height, $bg-img, $bg-size)
+	content ''
+	display block
+	position relative
+	box-sizing content-box
+	float left
+	width $width
+	height $height
+	background-image $bg-img
+	background-size $bg-size
+	background-repeat no-repeat
+
+
+
+
+// ===================================================================================================================
+// Drop-down menu
+// ===================================================================================================================
+
+// Arrow to down
+caret()
+	&:after
+		content ''
+		display inline-block
+		margin-left 6px
+		width 0
+		height 0
+		vertical-align middle
+		border-top 4px dashed
+		border-top 4px solid
+		border-right 4px solid transparent
+		border-left 4px solid transparent
+
+// Arrow to down (without underline for thin underline links)
+caret-absolute()
+	caret()
+	position relative
+	&:after
+		position absolute
+		top 50%

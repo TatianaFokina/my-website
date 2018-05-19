@@ -1,0 +1,5 @@
+[
+  "./src/js/scripts.js",
+  "./src/js/libs/fancybox-3.1.20/jquery.fancybox.min.js",
+  "./src/js/libs/custom.collapse.js"
+]

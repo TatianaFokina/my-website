@@ -1,0 +1,46 @@
+$breadcrumb-item-padding = 0.5rem
+//$breadcrumb-link-color = $brand_blue
+$breadcrumb-bg = $brand_gray
+$breadcrumb-divider-color = $brand_gray-light
+$breadcrumb-active-color = $brand_gray-light
+$breadcrumb-divider = "/"
+
+
+
+
+.breadcrumb
+	padding 0
+	margin-bottom 0.5rem !important
+	list-style none
+	//background-color $breadcrumb-bg
+	//border-radius(2px)
+	clearfix()
+	&-item
+		float: left
+		// The separator between breadcrumbs (by default, a forward-slash: "/")
+		+ .breadcrumb-item::before
+			display: inline-block
+			// Suppress underlining of the separator in modern browsers
+			padding-right: $breadcrumb-item-padding
+			padding-left: $breadcrumb-item-padding
+			color: $breadcrumb-divider-color
+			content: $breadcrumb-divider
+		// IE9-11 hack to properly handle hyperlink underlines for breadcrumbs built
+		// without `<ul>`s. The `::before` pseudo-element generates an element
+		// *within* the .breadcrumb-item and thereby inherits the `text-decoration`.
+		//
+		// To trick IE into suppressing the underline, we give the pseudo-element an
+		// underline and then immediately remove it.
+		+ .breadcrumb-item:hover::before
+			text-decoration: underline
+		+ .breadcrumb-item:hover::before
+			text-decoration: none
+		&.active
+			color: $breadcrumb-active-color
+
+// Эффекты у ссылок при наведении
+
+.page-link:hover:not(.active)
+	background lighten($breadcrumb-bg, 85%)
+	color $breadcrumb-link-color !important
+	transition 0

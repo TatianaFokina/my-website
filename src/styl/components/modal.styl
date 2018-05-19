@@ -1,0 +1,110 @@
+@import '../mixins/mixins__custom.styl'
+$modal-header__bg=#ddd
+
+// ===============================
+// Универсальные свойства, которые можно применить к другим модальным окнам или на других проектах
+// ===============================
+.modal-container
+	display none
+	position fixed
+	top 0
+	left 0
+	height 100%
+	width 100%
+	z-index 9990
+	overflow auto
+	background alpha(#424242, 0.95)
+	text-align center
+	white-space nowrap
+	overflow-x hidden
+	&:before
+		display inline-block
+		vertical-align middle
+		height 100%
+		
+		// Адаптивное
+		+media(md)
+			content ''
+			
+		
+.modal
+	position relative // для кнопки "закрыть"
+	display inline-block
+	vertical-align middle
+	//margin 0 auto
+	z-index 9998
+	text-align left
+	white-space normal
+	background #fff
+	color $body-color
+	box-shadow 0 0 20px rgba(0, 0, 0, 0.6)
+
+	// Адаптивное
+	+media(sm)
+		margin 15px
+	
+	&__heading
+		position: relative;
+		background $modal-header__bg
+		//	font-size 1.2rem
+		@extend h3
+		margin: 0
+		padding 15px
+	
+	&__close-btn
+		position absolute
+		top 0
+		right 0
+		width 50px
+		height 100%
+		background: darken($modal-header__bg, 6) no-repeat 50% 50% svg-load('../imgs/close.svg');
+		background-size 18px
+		border 0
+		cursor pointer
+		z-index 9999
+	
+
+
+
+		
+
+
+		
+// ===============================
+// Форма Contact Me
+// ===============================
+
+.modal
+	&__contacts
+		position: relative
+		padding 15px 15px 30px
+		border-bottom 2px solid $modal-header__bg
+		&:after
+			content: "or";
+			position: absolute;
+			bottom: -12px;
+			left: 27px;
+			color: #929292;
+			background: #fff;
+			padding: 1px 10px;
+	&__callback
+		padding 30px 15px 15px
+		
+	&__text
+		margin-bottom: 10px
+		color $brand_gray
+
+		
+	// Иконки
+	
+	.text-icon
+		&--tel
+			background-image svg-load('../imgs/phone--2.svg')
+			background-position 0 6px
+		&--email
+			background-image svg-load('../imgs/email--2.svg')
+			background-position 0 11px
+		
+	// Адаптивное
+	+media(md)
+		max-width 400px

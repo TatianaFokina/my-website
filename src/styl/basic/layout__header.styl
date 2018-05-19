@@ -1,0 +1,69 @@
+header
+	width 100%
+	@extend .fixed-top
+	background-color $brand-white
+	box-shadow 0 4px 10px 0 rgba(0, 0, 0, 0.25)
+	
+
+.header-flex
+	@extends .container-fluid
+	@extends .d-flex
+	align-items flex-start
+	justify-content space-between
+	// Adaptive
+	flex-direction column
+	+media(sm)
+		align-items center
+	+media(md)
+		flex-direction row
+
+
+
+
+// Padding after header
+.content>:first-of-type
+	padding-top calc(77px + 3rem) // header height + 48px
+
+
+
+
+// Logo, title, subtitle
+.header
+	// Logo
+	&-logo
+		background-image svg-load('../imgs/logo.svg')
+		background-repeat no-repeat
+		background-position 0 50%
+		background-size cover
+		// Adaptive
+		width 38px
+		height @width
+		+media(lg)
+			width 46px
+			height @width
+		
+		
+	&-logo img
+		margin-right 0
+		width 46px
+		height @width
+	// Title & subtitle
+	&-inf
+		// Adaptive (margin before nav items)
+		margin-right 0
+		+media(md)
+			margin-right 0.5rem // 8px
+		+media(lg)
+			margin-right 3rem // 48px
+		&.media
+			align-items center
+	&-name
+		padding 16px 0 16px 8px
+		width auto
+		&__title
+			font-size $font-size-lg
+			font-weight bold
+			line-height 1
+		&__subtitle
+			font-size $font-size-xs
+	

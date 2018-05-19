@@ -1,0 +1,83 @@
+$pagination-padding-x = 0.75rem
+$pagination-padding-y = 0.5rem
+$pagination-padding-x-sm = 0.5rem
+$pagination-padding-y-sm = 0.25rem
+$pagination-padding-x-lg = 1.5rem
+$pagination-padding-y-lg = 0.75rem
+$pagination-line-height = 1.25
+$pagination-color = $link-color
+$pagination-bg = $brand-white
+$pagination-border-width = 1px
+$pagination-border-color = #ddd
+$pagination-hover-color = $link-hover-color
+$pagination-hover-bg = $brand_gray-lighter
+$pagination-hover-border = #ddd
+$pagination-active-color = $brand-white
+$pagination-active-bg = $brand-primary
+$pagination-active-border = $brand-primary
+$pagination-disabled-color = $brand_gray-light
+$pagination-disabled-bg = $brand-white
+$pagination-disabled-border = #ddd
+
+
+
+
+
+
+
+
+
+.pagination__inr
+	align-items center
+	.control--prev
+	.control--next
+		white-space nowrap
+	.control--prev
+		margin-right 15px
+		../ .control--next
+			margin-left @margin-right
+	.spacer-l // многоточие
+		margin: 0 5px;
+	.control--disabled
+		color lighten($brand_gray, 50)
+	
+	
+
+
+.page-link
+	position: relative
+	display: block
+	padding: $pagination-padding-y $pagination-padding-x
+	margin-left: - 1px
+	line-height: $pagination-line-height
+	color: $pagination-color
+	background-color: $pagination-bg
+	border: $pagination-border-width solid $pagination-border-color
+	&:first-child
+		.page-link
+			margin-left: 0
+			border-left-radius(2px)
+	&:last-child
+		.page-link
+			border-right-radius(2px)
+	&.active
+		z-index: 2
+		color: $pagination-active-color
+		background-color: $pagination-active-bg
+		border-color: $pagination-active-border
+	&.disabled
+		color: $pagination-disabled-color
+		pointer-events: none
+		cursor: not-allowed
+		// While `pointer-events: none` removes the cursor in modern browsers, we provide a disabled cursor as a fallback.
+		background-color: $pagination-disabled-bg
+		border-color: $pagination-disabled-border
+
+//
+// Sizing
+//
+.pagination-lg
+	pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius = 2px)
+
+.pagination-sm
+	pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius = 2px)

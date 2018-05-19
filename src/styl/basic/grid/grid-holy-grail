@@ -1,0 +1,23 @@
+// Sticky footer
+body
+	height 100vh // min-height 100vh in old method
+	display flex
+	flex-direction column
+
+@supports (display: grid)
+	header
+		grid-area header
+	
+	.content
+		grid-area content
+	
+	footer
+		grid-area footer
+	
+	body
+		display grid
+		grid-template-areas
+			'header'
+			'content'
+			'footer'
+	
