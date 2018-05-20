@@ -4,8 +4,17 @@ a
 	transition color 0.2s ease
 	& span
 		thin-underline()
+	&:hover span
+		thin-underline-hover()
+	// Line height for contacts
+	& .contact-link__text
+		line-height 1
+	
+	
+	
+	
 	&:hover
-		color darken($brand-1, 60%)
+		color $links-color--hover
 	
 	&:active
 		color #f00
