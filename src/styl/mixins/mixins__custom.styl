@@ -6,11 +6,12 @@ underline($decoration=ink)
 	text-decoration-skip $decoration
 
 // Thin underline
-thin-underline($border-color=$links-color, $opacity=25%, $border-color_hover=$links-color--hover)
-	border-bottom 1px solid
+thin-underline($border-color=$links-color, $opacity=25%)
+	border-bottom 2px solid
 	border-bottom-color alpha($border-color, $opacity)
-	//&:hover
-	//	border-color alpha($border-color_hover, $opacity)
+	
+thin-underline-hover($border-color=$links-color--hover, $opacity=25%)
+	border-bottom-color alpha($border-color, $opacity)
 
 thin-underline_colors($border-color=$links-color, $opacity=30%, $border-color_hover=$links_color-hover, $opacity_hover=30%)
 	border-bottom-color alpha($border-color, $opacity)
@@ -48,10 +49,6 @@ button-variant-static($color, $bg, $border)
 
 link-icon($width, $height, $bg-img, $bg-size)
 	content ''
-	display block
-	position relative
-	box-sizing content-box
-	float left
 	width $width
 	height $height
 	background-image $bg-img

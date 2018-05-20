@@ -14,6 +14,9 @@
 	position relative
 	background $brand-2
 
+.striped-section--portfolio
+	margin-bottom -2rem
+
 
 
 
@@ -26,9 +29,9 @@
 	margin-top 32px
 	width 100%
 	// Adaptive
+	flex-direction column
 	justify-content start
 	flex-wrap wrap
-	//flex-direction column
 	+media(sm)
 		flex-direction row
 		justify-content space-around
@@ -42,17 +45,19 @@
 	padding 1rem 1rem 0 0 // 8px
 	+media(md)
 		padding 0
-	//+media(lg)
-	//	padding 8px
 	
 	// Advantage icons
-	&__img
+	&__bullet
 		margin-right 8px
 		width 30px
 		height @width
+		background-image url('/imgs/icons/bg-advantage.svg')
+		background-color $brand-1
 		background-size 100%
 		background-repeat no-repeat
-		background-position 50% 50%
+		background-position 50% 0
+		border-radius 50%
+		transform rotate(45deg)
 		
 	// Advantage text
 	&__text
@@ -69,7 +74,7 @@
 	display block
 	background $brand-white
 	box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.25)
-	margin-bottom 32px
+	margin-bottom 2rem // 32px
 	&__img
 			width 100%
 			background-size cover
@@ -84,11 +89,16 @@
 	&__caption
 		padding 0.5rem 0 0.5rem 0.5rem // 8px
 		&__name
+			margin-bottom 0.5rem
 			display inline-block
+			line-height 1
 			thin-underline()
+			^[0]:hover &
+				thin-underline-hover()
 		&__desc
-			font-size $font-size-sm
-			color alpha($brand-1, 65%)
+				font-size $font-size-sm
+				color alpha($brand-1, 65%)
+				
 
 
 
@@ -106,9 +116,6 @@
 		background-repeat no-repeat
 		background-position 0 10px
 		background-size 7px
-		// Для bg-position
-		//+media(md)
-		//	background-position 0 8px
 
 .tools
 	margin-left 2rem // 32px
@@ -123,7 +130,7 @@
 .hero-card
 	background $brand-white
 	&-inf
-		padding 2.5rem 2rem 0 2rem !important // 40px 32px
+		padding 2.5rem 2rem 2rem 2rem !important // 40px 32px
 
 // Hero photo
 .hero-photo
@@ -138,21 +145,29 @@
 
 .xp-card
 	position relative
+	flex-direction column
+	+media(sm)
+		flex-direction row
 	&:not(:last-of-type)
 		margin-bottom 1.5rem // 24rem
 	&__col-1
 		width 110px
-		text-align right
+		+media(sm)
+			text-align right
 	&__name
 		font-weight bold
 	&__date
-		margin-right 0.5rem // 8px
-		padding 0 2px
-		display inline-block
-		position relative
-		white-space nowrap
-		color #9d8bff // ???????????
-		border 1px solid #9d8bff // ???????????
+		color darken($brand-2, 30)
+		font-size $font-size-xs
+		+media(sm)
+			margin-right 0.5rem // 8px
+			padding 0 2px
+			display inline-block
+			position relative
+			white-space nowrap
+			font-size inherit
+			color #9d8bff // ???????????
+			border 1px solid #9d8bff
 	&__desc
 		font-size $font-size-md
 		color $brand-light-gray
@@ -162,25 +177,27 @@
 			
 	// Line
 	&:not(:last-of-type):before
-		content ''
-		display block
-		position absolute
-		top 29px
-		bottom -24px
-		left 9%
-		width 1px
-		background-color #9d8bff // ???????????
+		+media(sm)
+			content ''
+			display block
+			position absolute
+			top 34px
+			bottom -24px
+			left 83px
+			width 1px
+			border-left 1px dashed #9d8bff
 	// Arrow
 	&:not(:last-of-type) .xp-card__date:after
-		content ''
-		display block
-		position absolute
-		top 30px
-		right 14px
-		padding 3px
-		border solid #9d8bff // ???????????
-		border-width 0 1px 1px 0
-		transform rotate(-135deg)
+		+media(sm)
+			content ''
+			display block
+			position absolute
+			top 33px
+			right 14px
+			padding 3px
+			border solid #9d8bff
+			border-width 0 1px 1px 0
+			transform rotate(-135deg)
 
 
 
@@ -189,13 +206,18 @@
 // Contacts
 // ===================================================================================================================
 
+.contact-link
+	line-height 0
+
 .contact-sprite
 	list-style none
 
 // Contact icons
 .contact-link__icon
-	padding-left 0.5rem // 8px
+	display inline-flex
+	align-items center
 	&:before
+		margin-right 0.5rem // 8px
 		link-icon($width: 28px, $height: $width, $bg-img: url('../imgs/icons/contact-sprite.svg'), $bg-size: auto 28px)
 	&--mail:before
 		background-position 0 0

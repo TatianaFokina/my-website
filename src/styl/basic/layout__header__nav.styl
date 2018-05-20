@@ -4,11 +4,8 @@
 	flex-grow 1
 	justify-content space-between
 	
-	// Adaptive for all nav items
-	margin-right -1rem
+	// Adaptive for md nav items
 	margin-bottom 1rem // 16px
-	+media(sm)
-		margin-right 1rem
 	+media(md)
 		margin-bottom 0
 		flex-wrap nowrap
@@ -18,7 +15,10 @@
 	align-items flex-end
 	+media(sm)
 		flex-direction row
-
+	&-wrp
+		margin-right -1rem
+		+media(sm)
+			margin-right 0
 
 
 
@@ -28,29 +28,18 @@
 	
 // links
 .nav-item
-	display block
-	flex 1 0
-	text-align center
+	display flex
+	flex 1 0 auto
+	justify-content center
+	align-items center
 	white-space nowrap
 	// Adaptive
 	padding 1rem // 16px
 	+media(md)
-		padding 0
+		padding 0.5rem 0 // 8px
 	
 	// Github link
 	&__github
-		// Adaptive
-		//margin-top 2rem // 32px ????????????????????????????
-		//padding-left 0
-		//padding-right 0
-		+media(sm)
-			margin-top 0 // ???????????????
-			//margin-left 2rem // 32px ???????????????????????
-		+media(md)
-			//margin-left 8rem // 128px
-			margin-top 0 // ????????????????
-		//+media(lg)
-		//	padding 0 3rem // 48px
 		&:before
 			margin-right 0.5rem // 8px
 			link-icon($width: 25px, $height: $width, $bg-img: url('../imgs/icons/ico-github.svg'), $bg-size: cover)
@@ -72,9 +61,10 @@
 			color lighten($brand-1, 10%)
 			background  alpha($brand-1, 25%)
 
+// Fixed for bug with hidden items when you expand or collapse menu
 .nav-wrp
 	+media(sm)
-		display block !important // фиксит баг с исчезновением пунктов меню при сворачивании/разворачивании
+		display block !important
 
 
 
@@ -106,7 +96,8 @@
 	flex-grow 1
 	align-self flex-end
 	transition max-height .7s, visibility .7s
-	overflow hidden // Expand & collapse menu items
+	// Expand & collapse menu items
+	overflow hidden
 	+media(sm)
 		align-self center
 	+media(sm)
