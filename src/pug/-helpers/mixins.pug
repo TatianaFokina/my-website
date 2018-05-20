@@ -33,16 +33,16 @@ mixin advantage(text)
 mixin contacts(href, text, classPref)
 	ul.contact-sprite
 		li.contact-link
-			a(href= href target='_blank' rel='noopener noreferrer').contact-link__icon(class='contact-link__icon' + classPref)
+			a(href= href target='_blank' rel='noopener noreferrer' class='contact-link__icon' + classPref).contact-link__icon
 				span.contact-link__text= text
 
 
 
 
 //-Work card
-mixin work(name, desc, link, img)
+mixin work(name, desc, ajax_data, img)
 	.col--md-6.col--lg-6
-		a.work-card(href='/portfolio/' + link)
+		a.work-card(data-work=ajax_data)
 			.work-card__img(style="background-image: url(" + img + ");")
 			.work-card__caption
 				.work-card__caption__name= name

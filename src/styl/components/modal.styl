@@ -28,7 +28,6 @@ $modal-header__bg=#ddd
 			
 		
 .modal
-	position relative // для кнопки "закрыть"
 	display inline-block
 	vertical-align middle
 	//margin 0 auto
@@ -43,14 +42,17 @@ $modal-header__bg=#ddd
 	+media(sm)
 		margin 15px
 	
-	&__heading
+	
+	
+	&__header
+		position relative // для кнопки "закрыть"
+	&__title
 		position: relative;
 		background $modal-header__bg
 		//	font-size 1.2rem
 		@extend h3
 		margin: 0
 		padding 15px
-	
 	&__close-btn
 		position absolute
 		top 0
@@ -62,49 +64,3 @@ $modal-header__bg=#ddd
 		border 0
 		cursor pointer
 		z-index 9999
-	
-
-
-
-		
-
-
-		
-// ===============================
-// Форма Contact Me
-// ===============================
-
-.modal
-	&__contacts
-		position: relative
-		padding 15px 15px 30px
-		border-bottom 2px solid $modal-header__bg
-		&:after
-			content: "or";
-			position: absolute;
-			bottom: -12px;
-			left: 27px;
-			color: #929292;
-			background: #fff;
-			padding: 1px 10px;
-	&__callback
-		padding 30px 15px 15px
-		
-	&__text
-		margin-bottom: 10px
-		color $brand_gray
-
-		
-	// Иконки
-	
-	.text-icon
-		&--tel
-			background-image svg-load('../imgs/phone--2.svg')
-			background-position 0 6px
-		&--email
-			background-image svg-load('../imgs/email--2.svg')
-			background-position 0 11px
-		
-	// Адаптивное
-	+media(md)
-		max-width 400px
