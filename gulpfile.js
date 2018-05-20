@@ -111,7 +111,8 @@ gulp.task('__compilePug', function () {
 		'!src/pug/**/*.inc.pug',
 		'!src/pug/**/*.tpl.pug',
 		'!src/pug/**/*--inc.pug',
-		'!src/pug/**/*--tpl.pug'
+		'!src/pug/**/*--tpl.pug',
+		'!src/pug/**/_*.pug'
 		])
 		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(pug())
