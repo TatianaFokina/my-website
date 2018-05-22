@@ -7,14 +7,14 @@ mixin repeat(limit)
 
 
 //-Work image without caption
-mixin project-img(src)
-	img(src=src alt='').work-img.img-fluid
+//mixin project-img(src)
+	img(src=src alt='').work-img
 
 //-Work image with caption and cut link
 mixin project-img-with-caption(src, caption)
-	.work-img.work-img--with-caption
+	.work-img
 		figure.work-img-inr
-			img(src='/imgs/portfolio' + src alt='').img-fluid
+			img(src='/imgs/portfolio' + src alt='').work-img__img
 			figcaption.work-img__caption= caption
 
 

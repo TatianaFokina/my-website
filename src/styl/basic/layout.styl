@@ -10,10 +10,12 @@ body
 
 html
 	font-family 'Roboto', sans-serif
-	font-size $font-size-root
 	font-weight normal
 	line-height $line-height-base
 	color $body-color
-	// Адаптивное
-	//+media(lg)
-	//	font-size $font-size-root
+	// Adaptive
+	font-size $font-size-sm
+	+media(md)
+		font-size $font-size-md
+	+media(lg)
+		font-size $font-size-root
