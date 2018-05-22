@@ -4,7 +4,7 @@ $(function() {
 	// После клика на пункт окно разворачивается
 	$('.work-card').click(function () {
 		$('html').css('overflow', 'hidden');
-		$('.modal-container').show();
+		$('.modal-container').css('display', 'flex');
 
 		var $modal_content_src = $(this).data("work"); // Считывает название файла с работой (атрибут data-work)
 
@@ -35,7 +35,7 @@ $(function() {
 
 	// Закрытие окна
 	$('.modal__close-btn, .modal-container').click(function () {
-		$('.modal-container').hide();
+		$('.modal-container').css('display', 'none');
 		$('html').css('overflow', 'auto');
 	});
 

@@ -1,66 +1,90 @@
 @import '../mixins/mixins__custom.styl'
-$modal-header__bg=#ddd
+
+$modal-header__bg = #E0E0E0
+:root
+	--modal__padding: 16px
++media(md)
+	:root
+		--modal__padding: 24px
+
+
 
 // ===============================
 // Универсальные свойства, которые можно применить к другим модальным окнам или на других проектах
 // ===============================
 .modal-container
 	display none
+	//@extend .d-flex
+	justify-content center
+	align-items flex-start
 	position fixed
 	top 0
 	left 0
 	height 100%
 	width 100%
 	z-index 9990
-	overflow auto
 	background alpha(#424242, 0.95)
 	text-align center
 	white-space nowrap
+	overflow auto // todo Нужен?
 	overflow-x hidden
-	&:before
-		display inline-block
-		vertical-align middle
-		height 100%
-		
-		// Адаптивное
-		+media(md)
-			content ''
-			
+	
 		
 .modal
-	display inline-block
-	vertical-align middle
-	//margin 0 auto
+	position: relative
+	width 100%
+	max-width 960px
 	z-index 9998
 	text-align left
 	white-space normal
 	background #fff
-	color $body-color
+	// color $body-color //todo Точно нужно?
 	box-shadow 0 0 20px rgba(0, 0, 0, 0.6)
 
 	// Адаптивное
-	+media(sm)
-		margin 15px
+	+media(lg)
+		margin-top 1rem
 	
 	
 	
 	&__header
-		position relative // для кнопки "закрыть"
-	&__title
-		position: relative;
+		position: sticky
+		top: 0 // для sticky
+		@extend .d-flex
+		align-items center
+		height: 8px * 5;
+		padding-left var(--modal__padding)
 		background $modal-header__bg
-		//	font-size 1.2rem
-		@extend h3
+	&__title
+		position: relative
+		font-size 1.313rem // 21px
+
+		
 		margin: 0
-		padding 15px
+		
 	&__close-btn
 		position absolute
 		top 0
 		right 0
 		width 50px
 		height 100%
-		background: darken($modal-header__bg, 6) no-repeat 50% 50% svg-load('../imgs/close.svg');
+		background no-repeat 50% 50% svg-load('../imgs/close.svg')
 		background-size 18px
 		border 0
 		cursor pointer
 		z-index 9999
+		
+		
+		
+		
+	&__content-header
+		padding calc(var(--modal__padding) - 8px) var(--modal__padding)
+		
+	// Шапка контента
+	&__content-header
+		font-size 0.8125rem // 13px
+		background lighten($modal-header__bg, 35%)
+		
+	// Контент
+	&__content
+		padding var(--modal__padding)
