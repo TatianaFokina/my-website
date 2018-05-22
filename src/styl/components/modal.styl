@@ -14,7 +14,6 @@ $modal-header__bg = #E0E0E0
 // ===============================
 .modal-container
 	display none
-	//@extend .d-flex
 	justify-content center
 	align-items flex-start
 	position fixed
@@ -58,17 +57,28 @@ $modal-header__bg = #E0E0E0
 	&__title
 		position: relative
 		font-size 1.313rem // 21px
-
-		
 		margin: 0
 		
+	&__pager
+		@extend .d-flex
+		height 100%
+		margin 0 2vw 0 auto
+		&__prev
+		&__next
+			width: 50px
+			height 100%
+			background no-repeat 50% 50% svg-load('../imgs/icons/pager-arrow.svg')
+			background-size auto 1rem
+			flex 1 0 auto
+			cursor pointer
+		&__prev
+			transform rotate(180deg)
+			
+	
 	&__close-btn
-		position absolute
-		top 0
-		right 0
 		width 50px
 		height 100%
-		background no-repeat 50% 50% svg-load('../imgs/close.svg')
+		background no-repeat 50% 50% svg-load('../imgs/icons/close.svg')
 		background-size 18px
 		border 0
 		cursor pointer
