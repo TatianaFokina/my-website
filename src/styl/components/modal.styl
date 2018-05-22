@@ -59,10 +59,8 @@ $modal-header__bg = #e0e0e0
 		position relative
 		font-size $font-size-h3 // 21px
 	
-	// Close button
-		position: relative
-		font-size 1.313rem // 21px
-		margin: 0
+	
+	
 		
 	&__pager
 		@extend .d-flex
@@ -79,21 +77,15 @@ $modal-header__bg = #e0e0e0
 		&__prev
 			transform rotate(180deg)
 			
-	
+	// Close button
 	&__close-btn
+		font-size 1.313rem // 21px
 		width 50px
 		height 100%
 		background no-repeat 50% 50% svg-load('../imgs/icons/close.svg')
-		width 50px
-		height 100%
-		position absolute
-		top 0
-		right 0
-		background no-repeat 50% 50% svg-load('../imgs/close.svg')
 		background-size 18px
 		border 0
 		cursor pointer
-		z-index 9999
 		&:hover
 			background-color darken($modal-header__bg, 20%)
 		
