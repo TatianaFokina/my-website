@@ -115,8 +115,13 @@
 		list-style none
 		background-image url('/imgs/marker-squared.svg')
 		background-repeat no-repeat
-		background-position 0 10px
-		background-size 7px
+		// Adaptive
+		background-position 0 8px
+		background-size 4px
+		+media(md)
+			background-size 5px
+		+media(lg)
+			background-size 6px
 
 .tools
 	margin-left 2rem // 32px
@@ -136,6 +141,7 @@
 // Hero photo
 .hero-photo
 	@extends .img-fluid
+	width 100%
 
 
 
@@ -182,24 +188,35 @@
 			content ''
 			display block
 			position absolute
-			top 34px
-			bottom -24px
+			top 25px
+			bottom -19px
 			left 83px
 			width 1px
 			border-left 1px dashed #9d8bff
+		+media(md)
+			bottom -21px
+			top 26px
+		+media(lg)
+			bottom -24px
+			top 29px
 	// Arrow
 	&:not(:last-of-type) .xp-card__date:after
 		+media(sm)
 			content ''
 			display block
 			position absolute
-			top 33px
-			right 14px
+			top 24px
+			right 16px
 			padding 3px
 			border solid #9d8bff
 			border-width 0 1px 1px 0
 			transform rotate(-135deg)
-
+		+media(md)
+			top 25px
+			right 15px
+		+media(lg)
+			top 28px
+			right 14px
 
 
 

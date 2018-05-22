@@ -1,6 +1,6 @@
 @import '../mixins/mixins__custom.styl'
 
-$modal-header__bg = #E0E0E0
+$modal-header__bg = #e0e0e0
 :root
 	--modal__padding: 16px
 +media(md)
@@ -9,9 +9,11 @@ $modal-header__bg = #E0E0E0
 
 
 
-// ===============================
+
+// ===================================================================================================================
 // Универсальные свойства, которые можно применить к другим модальным окнам или на других проектах
-// ===============================
+// ===================================================================================================================
+
 .modal-container
 	display none
 	//@extend .d-flex
@@ -28,63 +30,59 @@ $modal-header__bg = #E0E0E0
 	white-space nowrap
 	overflow auto // todo Нужен?
 	overflow-x hidden
-	
-		
+
 .modal
-	position: relative
 	width 100%
 	max-width 960px
-	z-index 9998
+	position relative
 	text-align left
 	white-space normal
-	background #fff
+	background $brand-white
 	// color $body-color //todo Точно нужно?
 	box-shadow 0 0 20px rgba(0, 0, 0, 0.6)
-
-	// Адаптивное
+	z-index 9998
+	// Adaptive
 	+media(lg)
 		margin-top 1rem
-	
-	
-	
+
+	// Modal header
 	&__header
-		position: sticky
-		top: 0 // для sticky
+		padding-left var(--modal__padding)
+		height 8px * 5
+		position sticky
+		top 0 // for 'sticky'
 		@extend .d-flex
 		align-items center
-		height: 8px * 5;
-		padding-left var(--modal__padding)
 		background $modal-header__bg
 	&__title
-		position: relative
-		font-size 1.313rem // 21px
-
-		
-		margin: 0
-		
+		margin 0
+		position relative
+		font-size $font-size-h3 // 21px
+	
+	// Close button
 	&__close-btn
+		width 50px
+		height 100%
 		position absolute
 		top 0
 		right 0
-		width 50px
-		height 100%
 		background no-repeat 50% 50% svg-load('../imgs/close.svg')
 		background-size 18px
 		border 0
 		cursor pointer
 		z-index 9999
+		&:hover
+			background-color darken($modal-header__bg, 20%)
 		
-		
-		
-		
+	// Content block
 	&__content-header
 		padding calc(var(--modal__padding) - 8px) var(--modal__padding)
 		
-	// Шапка контента
+	// Header of content block
 	&__content-header
-		font-size 0.8125rem // 13px
+		font-size $font-size-sm // 13px
 		background lighten($modal-header__bg, 35%)
 		
-	// Контент
+	// Content
 	&__content
 		padding var(--modal__padding)

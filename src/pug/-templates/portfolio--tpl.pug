@@ -12,8 +12,7 @@ include ../-helpers/mixins
 block link
 if ($link_enabled)
 	#link
-		a(href=$link, rel="noopener noreferrer" target="_blank")= $link_title
-
+		a(href=$link, rel='noopener noreferrer' target='_blank')= $link_title
 
 #content
 	block content
