@@ -1,0 +1,29 @@
+extends ../-templates/portfolio--tpl.pug
+
+
+block title
+	| Сайт дизайн-бюро Василия Дудина
+
+block desc
+	| Сайт UX-дизайнера и его команды. Передо мной стояло несколько задач: сверстать новую версию адаптивного кросс-браузерного сайта для последующего переноса на CMS MODX, перейти с LESS на Stylus и оптимизировать файлы и графику.
+
+block date
+	| Сентябрь 2017
+
+block link
+	- var $link_enabled = true
+	- var $link = 'https://vasiliy-dudin.com'
+	- var $link_title = 'vasiliy-dudin.com'
+
+block content
+	p Состоит из страниц "О нас", "Услуги и этапы", "Портфолио" и "Связаться с нами".
+	p Сайт разрабатывался совместно с UX-дизайнером на основе прототипа и дизайн-макета, сделанного в Figma, откуда были экспортированы цветовые схемы, иконки и изображения.
+	h4 Инструменты
+	p Pug, Stylus, jQuery, собственный CSS-фреймворк, Gulp, WebStorm, Axure RP, Figma, Jira.
+
+	h4 Скриншоты проекта и примеры кода
+	+project-img-with-caption('/vasd/vasd-front.jpg', 'Главная')
+	+project-img-with-caption('/vasd/vasd-portfolio.jpg', 'Портфолио')
+	+project-img-with-caption('/vasd/vasd-work.jpg', 'Страница одного проекта')
+	+project-img-with-caption('/vasd/vasd-phpstorm.jpg', 'Рабочая среда: файлы с переменными и скриптами')
+	+project-img-with-caption('/vasd/vasd-styl.jpg', 'Миксины Stylus и массив с брейкпоинтами, именование селекторов по БЭМ и использование ссылок на родительские селекторы')

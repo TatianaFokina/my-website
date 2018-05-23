@@ -1,0 +1,27 @@
+extends ../-templates/portfolio--tpl.pug
+
+
+block title
+	| Новогодняя CSS-анимация
+
+block desc
+	| Конкурс организовывала группа "PHP, JavaScript, jQuery, CSS, HTML" во ВКонтакте. Главное условие — создать картинку на чистом CSS без использования JS и SVG.
+
+block date
+	| 18 декабря 2016
+
+block link
+	- var $link_enabled = true
+	- var $link = 'https://vk.com/topic-42967112_35026841'
+	- var $link_title = 'Страница конкурса'
+
+block content
+	p У изображения два состояния: исходное и при наведении (hover-эффекты). В первом состоянии анимирован только снег: все снежинки разделены на три группы, каждая имеет уникальный родительский класс, которому задано свойство animation.
+	p При наведении на изображение поверх него накладывается красный полупрозрачный слой, изменяется цвет глаз цыплёнка, а в левом крыле появляется топор. Во всех приведённых случаях используется псевдоэлемент :hover.
+	p За изменение цвета глаз отвечает свойство animation со значением 3s blink ease-in-out infinite.
+	p Для появления топора изменяются его координаты: по умолчанию он расположен за цыплёнком, а при наведении к классу .axe применяется псевдокласс со свойством transform.
+	h4 Инструменты
+	p Pug, Stylus, WebStorm.
+	h4 CodePen
+	<p data-height="622" data-theme-id="light" data-slug-hash="mMreRr" data-default-tab="result" data-user="tatiana-fokina" data-embed-version="2" data-pen-title="Chicken" class="codepen">.</p>
+	<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
