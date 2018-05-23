@@ -1,6 +1,7 @@
 @import '../mixins/mixins__custom.styl'
 
 $modal-header__bg = #e0e0e0
+$modal-header__bg--hover = darken($modal-header__bg, 5%)
 :root
 	--modal__padding: 16px
 +media(md)
@@ -24,26 +25,23 @@ $modal-header__bg = #e0e0e0
 	height 100%
 	width 100%
 	z-index 9990
-	background alpha(#424242, 0.95)
-	text-align center
-	white-space nowrap
-	overflow auto // todo Нужен?
+	background $brand-1--3 //alpha(#424242, 0.95)
 	overflow-x hidden
+	cursor pointer
 
 .modal
 	width 100%
-	max-width 960px
+	max-width $last-width
+	min-height: 1500px
 	position: relative
-	z-index 9998
-	text-align left
 	white-space normal
 	background $brand-white
-	// color $body-color //todo Точно нужно?
 	box-shadow 0 0 20px rgba(0, 0, 0, 0.6)
+	cursor default
 
 	// Адаптивное
-	+media(lg)
-		margin-top 1rem
+	/*+media(lg)
+		margin-top 1rem*/
 
 	// Modal header
 	&__header
@@ -70,31 +68,37 @@ $modal-header__bg = #e0e0e0
 		&__next
 			width: 50px
 			height 100%
+			@extend .btn-reset
 			background no-repeat 50% 50% svg-load('../imgs/icons/pager-arrow.svg')
 			background-size auto 1rem
 			flex 1 0 auto
 			cursor pointer
 		&__prev
 			transform rotate(180deg)
-			
+	
 	// Close button
 	&__close-btn
 		font-size 1.313rem // 21px
 		width 50px
 		height 100%
+		@extend .btn-reset
 		background no-repeat 50% 50% svg-load('../imgs/icons/close.svg')
-		background-size 18px
-		border 0
-		cursor pointer
-		&:hover
-			background-color darken($modal-header__bg, 20%)
+		background-size 19px
 		
-	// Content block
-	&__content-header
-		padding calc(var(--modal__padding) - 8px) var(--modal__padding)
+	&__pager__prev
+	&__pager__next
+	&__close-btn
+		outline 0
+		&:hover
+			background-color $modal-header__bg--hover
+		&:active
+			//background-color hsl(hue($brand-1), 20, lightness($modal-header__bg--hover))
+			background-color darken($modal-header__bg--hover, 10%)
+			
 		
 	// Header of content block
 	&__content-header
+		padding calc(var(--modal__padding) - 8px) var(--modal__padding)
 		font-size $font-size-sm // 13px
 		background lighten($modal-header__bg, 35%)
 		

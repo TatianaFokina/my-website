@@ -16,7 +16,4 @@ make-container-width()
 
 .container-fluid
 	make-container()
-	// Searching for a last width of container
-	for $key, $value in $breakpoints-and-widths
-		$last-width = $value["container-width"]
-	max-width: unquote($last-width)
+	max-width: $last-width

@@ -3,16 +3,19 @@
 // ===================================================================================================================
 
 $brand-1 = #009688
+$brand-1--2 = desaturate($brand-1, 80%)
+$brand-1--3 = desaturate(lighten($brand-1, 70%), 60%)
 $brand-2 = #eceff1
 $brand-3 =  #a31094
-$brand-4 = #263238
+
 // Delete later
+// $brand-4 =
 $brand-5 = #edfaff
 $brand-6 = #e9e6f6
 
 // Type
 $links-color = $brand-1
-$links-color--hover = desaturate(lighten($brand-1, 0%), 80%)
+$links-color--hover = $brand-1--2
 $body-color = $brand-gray
 
 
@@ -97,6 +100,12 @@ $breakpoints-and-widths = {
 		"container-width": "960px"
 	}
 }
+
+
+// Searching for a last width of container
+for $key, $value in $breakpoints-and-widths
+	$last-width = unquote($value["container-width"])
+	
 
 // Number of columns
 $columns = 12
