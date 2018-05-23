@@ -6,13 +6,15 @@ include ../-helpers/mixins
 
 #desc
 	block desc
+
 #date
 	block date
 
 block link
 if ($link_enabled)
 	#link
-		a(href=$link, rel='noopener noreferrer' target='_blank')= $link_title
+		a(href=$link, rel='noopener noreferrer' target='_blank')
+			span= $link_title
 
 #content
 	block content
