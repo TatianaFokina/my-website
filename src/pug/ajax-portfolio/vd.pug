@@ -2,18 +2,33 @@ extends ../-templates/portfolio--tpl.pug
 
 
 block title
-	| 4
+	| Сайт Вадима Давыдова
 
 block desc
-	| 4
+	| Сайт фотографа с портфолио и формами для бронирования фотосессий. Главная задача — разработка адаптивного макета сайта, который легко перенести на CMS MODX.
 
 block date
-	| 4
+	| Январь 2018
 
 block link
-	- var $link_enabled = false
-	- var $link = 'https://tatianafokina.github.io/Stylus-CSS-Grid-System/'
-	- var $link_title = 'Страница на GitHub'
+	- var $link_enabled = true
+	- var $link = 'https://old.vd-photo.com'
+	- var $link_title = 'vd-photo.com'
 
 block content
-	p 4
+	p !!!!!!!!!!!!!!!Состоит из страниц "About", "Headshot", "Architecture", "Commercial" и "Blog". Также доступно три вида заявок: "Contact Me", "Book Session" и "Get an Estimate", которые различаются набором полей.
+	p Сайт разрабатывался совместно с UX-дизайнером, back-end разработчиком и контент-менеджером на основе прототипа и PSD-макета.
+	h4 Инструменты
+	p Pug, Stylus, собственный CSS-фреймворк, Gulp, PhpStorm, Axure RP, Adobe Photoshop, Zeplin, Trello.
+
+	h4 Скриншоты проекта и примеры кода
+	+project-img-with-caption('/vd-photo/vd-commercial.jpg', 'Страница "Commercial"')
+	+project-img-with-caption('/vd-photo/code-phpstorm-vd.jpg', 'Рабочая среда')
+	+project-img-with-caption('/vd-photo/vd-form.jpg', 'Форма заявки "Book Session"')
+	.row
+		.col--lg-4
+			+project-img-with-caption('/vd-photo/vd-blog-adaptive.jpg', 'Пост на мобильном устройстве')
+		.col--lg-4
+			+project-img-with-caption('/vd-photo/vd-menu-hamburger.jpg', 'Меню-гамбургер')
+	+project-img-with-caption('/vd-photo/code-pug-mixins-vd.jpg', 'Хлебные крошки (миксин Pug)')
+	+project-img-with-caption('/vd-photo/code-styl-variables-interp-vd.jpg', 'Переменные, интерполяции и медиа-запросы Stylus')
