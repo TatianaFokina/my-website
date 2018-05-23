@@ -124,7 +124,7 @@ $(function() {
 		}
 		$($modal).scrollTop(0); // Пролистывает в начало
 
-		console.log($modal_now);
+		//console.log($modal_now);
 	});
 
 
@@ -149,7 +149,7 @@ $(function() {
 		}
 		$($modal).scrollTop(0); // Пролистывает в начало
 
-		console.log($modal_now);
+		//console.log($modal_now);
 	});
 
 
