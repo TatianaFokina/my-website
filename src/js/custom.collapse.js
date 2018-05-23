@@ -13,7 +13,7 @@ $(function($) {
 				$($link).toggleClass('in').next($block).slideToggle();
 			});
 		}
-		console.log($screen.width());
+		//console.log($screen.width());
 	}
 
 	// При загрузке страницы

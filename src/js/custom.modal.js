@@ -1,9 +1,10 @@
 // Открытие и закрытие модального окна
 $(function() {
 	
-	var $modal = ".modal-container"; // Селектор модального окна. Элемент, который показыаем при нажатии на ссылку.
-	var $link = '.work-card'; // Селектор ссылки на модальное окно
-	var $link_opened = 'js-opened'; // Класс, который добавляем ссылки, соответствующей открытому модальному окну
+	var $modal = ".modal-container", // Селектор модального окна. Элемент, который показыаем при нажатии на ссылку.
+		$link = '.work-card', // Селектор ссылки на модальное окно
+		$link_opened = 'js-opened', // Класс, который добавляем ссылки, соответствующей открытому модальному окну
+		$modal_now = 1; // Номер текущего окна
 
 	// Убирает все классы --opened у всех ссылок
 	function removeAllOpenedFlags(){
@@ -54,9 +55,11 @@ $(function() {
 
 		var $modal_content_src = $(this).data("work"); // Считывает название файла с работой (атрибут data-work)
 
+		$modal_now = $(this).index($link) + 1; // записывает порядоковый номер текущего элемента. +1 потому что отсчёт начинается с 0.
 		loadToModal($modal_content_src);
 		removeAllOpenedFlags();
 		setAsOpened(this);
+		//console.log('Номер при открытии окна:' + $modal_now);
 	});
 
 
@@ -97,8 +100,7 @@ $(function() {
 
 
 
-	var $modal_now = 1,
-		$links_amount = $($link).length,
+	var $links_amount = $($link).length,
 		$modal_contentFirst = $($link).first(),
 		$modal_contentFirst_src = $modal_contentFirst.data("work"),
 		$modal_contentLast = $($link).last(),
@@ -110,17 +112,18 @@ $(function() {
 
 		// Для перехода к первому элементу
 		if ($modal_now === $links_amount || $modal_now <= 0 || $modal_now > $links_amount) {
-			loadToModal($modal_contentFirst_src); // Вставляем содержимое из первой ссылки
 			$modal_now = 1; // Сбрасываем счётчик
 			removeAllOpenedFlags(); // - классы для всех ссылок
 			$modal_contentFirst.addClass($link_opened); // + класс для ссылки
+			loadToModal($modal_contentFirst_src); // Вставляем содержимое из первой ссылки
+
 		}
 		// Для перехода к следующему элементу
 		else {
-			loadToModal($modal_contentNext_src);
-			$modal_now++;
 			removeAllOpenedFlags(); // - классы для всех ссылок
 			$modal_contentNext.addClass($link_opened); // + класс для ссылки
+			$modal_now++;
+			loadToModal($modal_contentNext_src);
 		}
 		$($modal).scrollTop(0); // Пролистывает в начало
 
@@ -134,17 +137,17 @@ $(function() {
 
 		// Для перехода к последнему элементу
 		if ($modal_now === 1 || $modal_now <= 0 || $modal_now > $links_amount) {
-			loadToModal($modal_contentLast_src);
-			$modal_now = $links_amount; // Устанавливаем максимальное значение
+						$modal_now = $links_amount; // Устанавливаем максимальное значение
 			removeAllOpenedFlags(); // - классы для всех ссылок
 			$modal_contentLast.addClass($link_opened); // + класс для ссылки
+			loadToModal($modal_contentLast_src);
 		}
 		// Для перехода к предыдущему элементу
 		else {
-			loadToModal($modal_contentPrev_src);
 			$modal_now--;
 			removeAllOpenedFlags(); // - классы для всех ссылок
 			$modal_contentPrev.addClass($link_opened); // + класс для ссылки
+			loadToModal($modal_contentPrev_src);
 
 		}
 		$($modal).scrollTop(0); // Пролистывает в начало
