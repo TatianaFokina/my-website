@@ -25,18 +25,19 @@ $modal-header__bg--hover = darken($modal-header__bg, 5%)
 	height 100%
 	width 100%
 	z-index 9990
-	background $brand-1--3 //alpha(#424242, 0.95)
+	background $brand-white //$brand-1--3 //alpha(#424242, 0.95)
+	//background-image: linear-gradient(120deg, $brand-2 0%, #ebedee 100%)
 	overflow-x hidden
 	cursor pointer
 
 .modal
 	width 100%
 	max-width $last-width
-	min-height: 1500px
+	min-height: 1200px
 	position: relative
 	white-space normal
 	background $brand-white
-	box-shadow 0 0 20px rgba(0, 0, 0, 0.6)
+	box-shadow 0 -10px 40px rgba(0,0,0,0.1)
 	cursor default
 
 	// Адаптивное
@@ -51,7 +52,7 @@ $modal-header__bg--hover = darken($modal-header__bg, 5%)
 		top 0 // for 'sticky'
 		@extend .d-flex
 		align-items center
-		background $modal-header__bg
+		background darken($brand-1--3, 10%) //$modal-header__bg
 	&__title
 		margin 0
 		position relative
@@ -100,7 +101,7 @@ $modal-header__bg--hover = darken($modal-header__bg, 5%)
 	&__content-header
 		padding calc(var(--modal__padding) - 8px) var(--modal__padding)
 		font-size $font-size-sm // 13px
-		background lighten($modal-header__bg, 35%)
+		background $brand-1--3 //lighten($modal-header__bg, 35%)
 		
 	// Content
 	&__content
