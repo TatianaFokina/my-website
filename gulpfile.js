@@ -2,48 +2,48 @@
 // Подключение модулей
 // ========================================================================
 var gulp = require('gulp');
-	CompileStylus = require('gulp-stylus');
-	pug           = require('gulp-pug');
-	fs            = require("fs");
-	pugBeautify   = require('gulp-pug-beautify');
-	browserSync   = require('browser-sync');
-	// Для конкатенации файлов
-	concat        = require('gulp-concat');
-	// Для сжатия JS
-	uglify        = require('gulp-uglify');
-	// Для минификации CSS
-	cssnano       = require('gulp-cssnano');
-	// Для переименования файлов
-	rename        = require('gulp-rename');
-	// Для удаления файлов и папок
-	del           = require('del');
-	// Библиотека кеширования
-	cache         = require('gulp-cache');
-	// Для автоматического добавления префиксов
-	autoprefixer  = require('gulp-autoprefixer');
-	// Для работы с изображениями
-	imagemin      = require('gulp-imagemin');
-	// Для сжатия png
-	pngquant      = require('imagemin-pngquant');
-	// Для сжатия jpg
-	imageminJpegtran = require('imagemin-jpegtran');
-	// Для сжатия gif
-	imageminGifsicle = require('imagemin-gifsicle');
-	// Для сжатия svg
-	imageminSvgo = require('imagemin-svgo');
-	gulp_postcss = require('gulp-postcss');
-	datauri = require('postcss-data-uri');
-	// Объединяет селекторы с одинаковыми свойствами
-	mergeRules = require('postcss-merge-rules');
-	// Объединяет @media, помещает их в конец css. Не очень хорошо, что базовые свойства макета находятся в конце файла
-	//combineCssMedia = require('css-mqpacker');
-	htmlbeautify = require('gulp-html-beautify');
-	plumber = require('gulp-plumber');
-	notify = require("gulp-notify");
-	// Меняет пути к файлам в css
-	modifyCssUrls = require('gulp-modify-css-urls');
-	postcss_inline_svg = require('postcss-inline-svg');
-	replace = require('gulp-replace');
+CompileStylus = require('gulp-stylus');
+pug           = require('gulp-pug');
+fs            = require("fs");
+pugBeautify   = require('gulp-pug-beautify');
+browserSync   = require('browser-sync');
+// Для конкатенации файлов
+concat        = require('gulp-concat');
+// Для сжатия JS
+uglify        = require('gulp-uglify');
+// Для минификации CSS
+cssnano       = require('gulp-cssnano');
+// Для переименования файлов
+rename        = require('gulp-rename');
+// Для удаления файлов и папок
+del           = require('del');
+// Библиотека кеширования
+cache         = require('gulp-cache');
+// Для автоматического добавления префиксов
+autoprefixer  = require('gulp-autoprefixer');
+// Для работы с изображениями
+imagemin      = require('gulp-imagemin');
+// Для сжатия png
+pngquant      = require('imagemin-pngquant');
+// Для сжатия jpg
+imageminJpegtran = require('imagemin-jpegtran');
+// Для сжатия gif
+imageminGifsicle = require('imagemin-gifsicle');
+// Для сжатия svg
+imageminSvgo = require('imagemin-svgo');
+gulp_postcss = require('gulp-postcss');
+datauri = require('postcss-data-uri');
+// Объединяет селекторы с одинаковыми свойствами
+mergeRules = require('postcss-merge-rules');
+// Объединяет @media, помещает их в конец css. Не очень хорошо, что базовые свойства макета находятся в конце файла
+//combineCssMedia = require('css-mqpacker');
+htmlbeautify = require('gulp-html-beautify');
+plumber = require('gulp-plumber');
+notify = require("gulp-notify");
+// Меняет пути к файлам в css
+modifyCssUrls = require('gulp-modify-css-urls');
+postcss_inline_svg = require('postcss-inline-svg');
+replace = require('gulp-replace');
 
 
 
@@ -53,7 +53,7 @@ var gulp = require('gulp');
 // ========================================================================
 // Компиляция
 // ========================================================================
-// Stylus (all.styl, в папку TEST)
+// Stylus (all.styl → test/)
 gulp.task('__compileStylus', function () {
 	var $postcss_plugins = [
 		postcss_inline_svg,
@@ -77,7 +77,7 @@ gulp.task('__compileStylus', function () {
 		.pipe(browserSync.reload({stream: true}));
 });
 
-// Stylus (all.styl, в папку DIST)
+// Stylus (all.styl → dist/)
 gulp.task('__compileStylus_dist', function () {
 	var $postcss_plugins = [
 		postcss_inline_svg,
@@ -102,6 +102,7 @@ gulp.task('__compileStylus_dist', function () {
 		.pipe(gulp.dest('dist/css'))
 		.pipe(browserSync.reload({stream: true}));
 });
+
 // Pug
 gulp.task('__compilePug', function () {
 	return gulp.src([
@@ -113,7 +114,7 @@ gulp.task('__compilePug', function () {
 		'!src/pug/**/*--inc.pug',
 		'!src/pug/**/*--tpl.pug',
 		'!src/pug/**/_*.pug'
-		])
+	])
 		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
 		.pipe(pug())
 		// Разметка НЕ в одну строку
@@ -141,7 +142,8 @@ gulp.task('__mergeJS', function() {
 		// Собираем их в кучу в новом файле
 		.pipe(concat('all.js'))
 		// Сохраняем в папку
-		.pipe(gulp.dest('test/js'));
+		.pipe(gulp.dest('test/js'))
+		.pipe(browserSync.reload({stream: true}));
 });
 
 
@@ -174,21 +176,7 @@ gulp.task('LiveReload', ['Build--Test'], function () {
 	});
 	gulp.watch('src/styl/**/*.styl', ['__compileStylus']);
 	gulp.watch('src/**/*.pug', ['__compilePug']);
-});
-
-
-// Открывает в браузере папку "dist"
-gulp.task('__dist-OpenInBrowser', function() {
-	// Выполняем browserSync
-	browserSync({
-		// Определяем параметры сервера
-		server: {
-			// Директория для сервера
-			baseDir: 'dist'
-		},
-		// Отключаем уведомления
-		notify: false
-	});
+	gulp.watch('src/js/**/*.js', ['__mergeJS']);
 });
 
 
@@ -213,9 +201,13 @@ gulp.task('__delTest', function() {
 
 
 
+
+
+
 // ========================================================================
 // Билд
 // ========================================================================
+
 // →  "test"
 gulp.task('Build--Test', ['__compileStylus', '__mergeJS', '__compilePug'], function() {
 	// Шрифты
@@ -265,19 +257,19 @@ gulp.task('Build', ['__delDist', '__compileStylus', '__mergeJS'], function() {
 
 	// CSS
 	gulp.src('test/css/**/*.css')
-		// Добавляем суффикс .min
-		//.pipe(rename({suffix: '.min'}))
-		/*.pipe(modifyCssUrls({ // Меняет пути к файлам в css
-			modify: function (url, filePath) {
-				return '/assets/dist' + url;
-			}/!*,
-			prepend: 'https://fancycdn.com/',
-			append: '?cache-buster'*!/
-		}))*/
-		// Меняет пути к файлам в css
-		//.pipe(replace('\"/fonts', '\"/assets/dist/fonts'))
-		//.pipe(replace('\'/fonts', '\'/assets/dist/fonts'))
-		// Сжимаем
+	// Добавляем суффикс .min
+	//.pipe(rename({suffix: '.min'}))
+	/*.pipe(modifyCssUrls({ // Меняет пути к файлам в css
+		modify: function (url, filePath) {
+			return '/assets/dist' + url;
+		}/!*,
+		prepend: 'https://fancycdn.com/',
+		append: '?cache-buster'*!/
+	}))*/
+	// Меняет пути к файлам в css
+	//.pipe(replace('\"/fonts', '\"/assets/dist/fonts'))
+	//.pipe(replace('\'/fonts', '\'/assets/dist/fonts'))
+	// Сжимаем
 		.pipe(cssnano())
 		// Сохраняем в папку
 		.pipe(gulp.dest('dist/css'));
