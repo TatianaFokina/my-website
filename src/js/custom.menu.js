@@ -18,12 +18,18 @@ $(function() {
 	// Инициализация при ресайзе окна
 	$(window).resize(checkWindowWidth);
 
-	// При клике на гамбургер, пункт меню или .content
-	$($link + ', .nav-item, .content').click(function() {
+	// При клике на гамбургер или пункт меню
+	$($link + ', .nav-item').click(function() {
 		if (checkWindowWidth()) {
 			$($link).toggleClass('in').next($block).slideToggle();
 		}
 	});
 
+	// Меню закрывается при клике на .content
+	$('.content, .js-scroll-to-top, footer').click(function() {
+		if (checkWindowWidth()) {
+			$($link).removeClass('in').next($block).slideUp();
+		}
+	});
 
 });
