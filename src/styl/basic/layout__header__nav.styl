@@ -1,7 +1,8 @@
-.nav
+.nav // ul
 	@extend .d-flex
-	flex-wrap wrap
-	flex-grow 1
+	margin: 0
+	//flex-wrap wrap
+	//flex-grow 1
 	justify-content space-between
 	
 	// Adaptive for md nav items
@@ -22,44 +23,37 @@
 
 
 
+
 // ===================================================================================================================
 // Navigation links
 // ===================================================================================================================
 	
 // links
-.nav-item
+.nav-item // li
 	display flex
 	flex 1 0 auto
 	justify-content center
 	align-items center
 	white-space nowrap
-	// Adaptive
-	padding 1rem // 16px
-	+media(md)
-		padding 0.5rem 0 // 8px
+	&__lnk
+		flex: 1 0 auto
+		@extend .d-flex
+		justify-content center
+		&:hover
+			color lighten($brand-1, 10%)
+			background  alpha($brand-1, 25%)
+			
+		// Adaptive
+		padding 1rem
+		+media(md)
+			padding 0.5rem 0 // 8px
 	
 	// Github link
 	&__github
 		&:before
 			margin-right 0.5rem // 8px
 			link-icon($width: 25px, $height: $width, $bg-img: url('../imgs/icons/ico-github.svg'), $bg-size: cover)
-	
-	a
-		&:after
-			height 1px
-			width 0
-			display block
-			content ''
-			background-color lighten($brand-1, 80%)
-			transition width .2s ease-in-out
-			&:focus
-				color lighten($brand-1, 60%)
-		&:hover:after,
-		&:focus:after
-			width 100%
-		&:hover
-			color lighten($brand-1, 10%)
-			background  alpha($brand-1, 25%)
+
 
 // Fixed for bug with hidden items when you expand or collapse menu
 .nav-wrp

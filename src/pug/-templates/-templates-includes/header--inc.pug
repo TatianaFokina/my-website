@@ -10,15 +10,20 @@ header.header
 
 		//-Main menu
 		button.hamburger(aria-label='Меню').js-expand-lnk
-		.nav-wrp.js-expand-block
-			nav.nav
-				a(href='#aboutMe').nav-item
-					span.nav-item-inr Обо мне
-				a(href='#portfolio').nav-item
-					span.nav-item-inr Портфолио
-				a(href='#cv').nav-item
-					span.nav-item-inr Резюме
-				a(href='#contacts').nav-item
-					span.nav-item-inr Контакты
-				a(href='https://github.com/TatianaFokina' target='_blank' rel='noopener noreferrer').nav-item.nav-item__github
-					span.nav-item-inr GitHub
+		nav.nav-wrp.js-expand-block
+			ul.nav
+				li.nav-item
+					a.nav-item__lnk(href='#aboutMe')
+						span.nav-item__title Обо мне
+				li.nav-item
+					a.nav-item__lnk(href='#portfolio')
+						span.nav-item__title Портфолио
+				li.nav-item
+					a.nav-item__lnk(href='#cv')
+						span.nav-item__title Резюме
+				li.nav-item
+					a.nav-item__lnk(href='#contacts')
+						span.nav-item__title Контакты
+				li.nav-item.nav-item__github
+					a.nav-item__lnk(href='https://github.com/TatianaFokina' target='_blank' rel='noopener noreferrer')
+						span.nav-item__title GitHub
