@@ -11,10 +11,10 @@ mixin repeat(limit)
 	img(src=src alt='').work-img
 
 //-Work image with caption and cut link
-mixin project-img-with-caption(src, caption)
+mixin project-img-with-caption(src, caption, alt)
 	.work-img
 		figure.work-img-inr
-			img(src='/imgs/portfolio' + src alt='').work-img__img
+			img(src='/imgs/portfolio' + src alt=alt).work-img__img
 			figcaption.work-img__caption= caption
 
 
@@ -31,10 +31,9 @@ mixin advantage(text)
 
 //-Contact icons
 mixin contacts(href, text, classPref)
-	ul.contact-sprite
-		li.contact-link
-			a(href= href target='_blank' rel='noopener noreferrer' class='contact-link__icon' + classPref).contact-link__icon
-				span.contact-link__text= text
+	li.contact-link
+		a(href= href target='_blank' rel='noopener noreferrer' class='contact-link__icon' + classPref).contact-link__icon
+			span.contact-link__text= text
 
 
 

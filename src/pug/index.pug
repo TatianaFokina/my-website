@@ -145,11 +145,13 @@ block content
 				//-Contacts
 				h2(id='contacts') Контакты
 				h3 Для связи со мной
-				+contacts('mailto:fokinatatian@gmail.com', 'fokinatatian@gmail.com', '--mail')
-				+contacts('skype:falskenpirogen?chat', 'Telegram', '--telegram')
-				+contacts('skype:falskenpirogen?chat', 'Skype', '--skype')
-				+contacts('https://www.facebook.com/profile.php?id=100001031453259', 'Facebook', '--fb')
+				ul.contact-sprite
+					+contacts('mailto:fokinatatian@gmail.com', 'fokinatatian@gmail.com', '--mail')
+					+contacts('skype:falskenpirogen?chat', 'Telegram', '--telegram')
+					+contacts('skype:falskenpirogen?chat', 'Skype', '--skype')
+					+contacts('https://www.facebook.com/profile.php?id=100001031453259', 'Facebook', '--fb')
 				h3 Сайты
-				+contacts('https://spb.hh.ru/resume/e681acbdff0294fb250039ed1f6137576a6544', 'Резюме на HeadHunter', '--hh')
-				+contacts('https://github.com/TatianaFokina?tab=repositories', 'GitHub', '--github')
-				+contacts('https://www.fl.ru/users/fokinatatiana/', 'FL.ru', '--fl')
+				ul.contact-sprite
+					+contacts('https://spb.hh.ru/resume/e681acbdff0294fb250039ed1f6137576a6544', 'Резюме на HeadHunter', '--hh')
+					+contacts('https://github.com/TatianaFokina?tab=repositories', 'GitHub', '--github')
+					+contacts('https://www.fl.ru/users/fokinatatiana/', 'FL.ru', '--fl')

@@ -33,14 +33,14 @@
 		height @width
 	// Title & subtitle
 	&-inf
+		display flex
+		align-items center
 		// Adaptive (margin before nav items)
 		margin-right 0
 		+media(md)
 			margin-right 0.5rem // 8px
 		+media(lg)
 			margin-right 3rem // 48px
-		&.media
-			align-items center
 	&-name
 		padding 16px 0 16px 8px
 		width auto
@@ -56,8 +56,10 @@
 
 // Padding after header
 .content>:first-of-type
-	padding-top calc(77px + 3rem) // header height + 48px
+	padding-top calc(65px + 3rem) // header height + 48px
 	+media(sm)
-		padding-top calc(154px + 3rem)
+		padding-top calc(111px + 3rem)
 	+media(md)
-		padding-top calc(77px + 3rem)
+		padding-top calc(68px + 3rem)
+	+media(md)
+		padding-top calc(74px + 3rem)

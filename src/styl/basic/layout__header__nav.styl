@@ -1,6 +1,6 @@
 .nav // ul
 	@extend .d-flex
-	margin: 0
+	margin 0
 	//flex-wrap wrap
 	//flex-grow 1
 	justify-content space-between
@@ -27,7 +27,7 @@
 // ===================================================================================================================
 // Navigation links
 // ===================================================================================================================
-	
+
 // links
 .nav-item // li
 	display flex
@@ -84,18 +84,19 @@
 // ===================================================================================================================
 
 .hamburger
-	height 30px
-	width 30px
+	@extend .btn-reset
+	width 42px
+	height @width
 	position absolute
-	top 22px
-	right 16px
+	top 11px
+	right 1rem
 	background $brand-white url('../imgs/icons/ico-hamburger.svg') no-repeat 50% 50%
-	background-size 35px
+	background-size 24px
 	border none
 	border-radius 3px
 	z-index 999
 	&.in
-		background-color lighten($brand-1, 80%)
+		background-color #b1e2de
 	// Expand & collapse hamburger icon
 	+media(sm)
 		display none
