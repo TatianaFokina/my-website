@@ -12,7 +12,7 @@ header.header
 		button.hamburger(aria-label='Меню').js-expand-lnk
 		nav.nav-wrp.js-expand-block
 			ul.nav
-				li.nav-item
+				li.nav-item.active
 					a.nav-item__lnk(href='#aboutMe')
 						span.nav-item__title Обо мне
 				li.nav-item
@@ -24,6 +24,6 @@ header.header
 				li.nav-item
 					a.nav-item__lnk(href='#contacts')
 						span.nav-item__title Контакты
-				li.nav-item.nav-item__github
-					a.nav-item__lnk(href='https://github.com/TatianaFokina' target='_blank' rel='noopener noreferrer')
+				li.nav-item
+					a.nav-item__lnk.nav-item__lnk--github(href='https://github.com/TatianaFokina' target='_blank' rel='noopener noreferrer')
 						span.nav-item__title GitHub

@@ -19,7 +19,7 @@ $(function() {
 	$(window).resize(checkWindowWidth);
 
 	// При клике на гамбургер или пункт меню
-	$($link + ', .nav-item').click(function() {
+	$($link + ', .nav-item__lnk').click(function() {
 		if (checkWindowWidth()) {
 			$($link).toggleClass('in').next($block).slideToggle();
 		}
