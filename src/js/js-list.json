@@ -1,7 +1,7 @@
 [
   "./src/js/custom.menu.js",
+  "./src/js/custom.anchor-link-scroll.js",
   "./src/js/custom.scroll-to-top.js",
   "./src/js/scrollspy.js",
-  "./src/js/custom.modal.js",
-  "./src/js/custom.anchor-link-scroll.js"
+  "./src/js/custom.modal.js"
 ]

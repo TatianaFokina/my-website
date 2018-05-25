@@ -1,6 +1,66 @@
-// https://github.com/r3plica/Scrollspy
-!function(t,e){t.fn.extend({scrollspy:function(n){var a={namespace:"scrollspy",activeClass:"active",animate:!1,offset:0,container:e};n=t.extend({},a,n);var o=function(t,e){return parseInt(t,10)+parseInt(e,10)},r=function(e){for(var n=[],a=0;a<e.length;a++){var o=e[a],r=t(o).attr("href"),f=t(r);if(f.length>0){var s=Math.floor(f.offset().top),i=s+Math.floor(f.outerHeight());n.push({element:f,hash:r,top:s,bottom:i})}}return n},f=function(e,n){for(var a=0;a<e.length;a++){var o=t(e[a]);if(o.attr("href")===n)return o}},s=function(e){for(var a=0;a<e.length;a++){var o=t(e[a]);o.parent().removeClass(n.activeClass)}};return this.each(function(){for(var a=this,i=t(n.container),l=t(a).find("a"),c=0;c<l.length;c++){var h=l[c];t(h).on("click",function(a){var r=t(this).attr("href"),f=t(r);if(f.length>0){var s=o(f.offset().top,n.offset);n.animate?t("html, body").animate({scrollTop:s},1e3):e.scrollTo(0,s),a.preventDefault()}})}var v=r(l);i.bind("scroll."+n.namespace,function(){for(var e,r={top:o(t(this).scrollTop(),Math.abs(n.offset)),left:t(this).scrollLeft()},i=0;i<v.length;i++){var c=v[i];if(r.top>=c.top&&r.top<c.bottom){var h=c.hash;if(e=f(l,h)){n.onChange&&n.onChange(c.element,t(a),r),s(l),e.parent().addClass(n.activeClass);break}}}!e&&n.onExit&&n.onExit(t(a),r)})})}})}(jQuery,window,document,void 0);
+// https://codepen.io/Pustur/pen/mPNoWx
 
-$(function () {
-	$(".nav").scrollspy({ offset: 0 }); // todo Не работает
-});
+
+(function() {
+	'use strict';
+
+	// Vars
+	var $links = $('.nav a'),
+		$sections = getSections($links),
+		$root = $('html, body');
+
+	// Events
+	$(window).on('scroll', function() {
+		activateLink($sections, $links);
+	});
+
+	$('a[href*="#"]:not([href="#"])').on('click', function() {
+		var href = $.attr(this, 'href');
+
+		$root.animate({
+			scrollTop: $(href).offset().top
+		}, 500, function() {
+			window.location.hash = href;
+		});
+
+		return false;
+	});
+
+	// Init
+	window.CP.PenTimer.MAX_TIME_IN_LOOP_WO_EXIT = Number.MAX_SAFE_INT;
+	activateLink($sections, $links);
+
+	// Functions
+	function getSections($links) {
+		var linksHref,
+			hashes = '';
+
+		for (var i = 0, len = $links.length; i < len; i++) {
+			linksHref = $links.eq(i).attr('href');
+
+			if (linksHref.charAt(0) === '#') {
+				hashes += linksHref + ',';
+			}
+		}
+		hashes = hashes.slice(0, -1);
+
+		return $(hashes);
+	}
+
+	function activateLink($sections, $links) {
+		var $section,
+			yPosition = $(window).scrollTop();
+
+		for (var i = $sections.length - 1; i >= 0; i--) {
+			$section = $sections.eq(i);
+
+			if (yPosition >= $section.offset().top)  {
+				for (var j = 0, linksLen = $links.length; j < linksLen; j++) {
+					$links.eq(j).removeClass('active');
+				}
+				$links.filter('[href="#' + $section.attr('id') + '"]').addClass('active');
+				return;
+			}
+		}
+	}
+}());
