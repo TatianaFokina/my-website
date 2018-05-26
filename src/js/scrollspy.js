@@ -1,5 +1,5 @@
 // https://codepen.io/Pustur/pen/mPNoWx
-
+// Немного модифицирован, добавлена переменная с оффсетом
 
 (function() {
 	'use strict';
@@ -7,7 +7,8 @@
 	// Vars
 	var $links = $('.nav a'),
 		$sections = getSections($links),
-		$root = $('html, body');
+		$root = $('html, body'),
+		$offset = '+48';
 
 	// Events
 	$(window).on('scroll', function() {
@@ -54,7 +55,7 @@
 		for (var i = $sections.length - 1; i >= 0; i--) {
 			$section = $sections.eq(i);
 
-			if (yPosition >= $section.offset().top)  {
+			if (yPosition >= $section.offset().top - $offset)  {
 				for (var j = 0, linksLen = $links.length; j < linksLen; j++) {
 					$links.eq(j).removeClass('active');
 				}

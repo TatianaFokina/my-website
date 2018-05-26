@@ -12,7 +12,7 @@
 // Section color
 .striped-section:nth-child(odd)
 	position relative
-	background $brand-2
+	background $brand-3
 
 .striped-section--portfolio
 	margin-bottom -2rem
@@ -52,7 +52,7 @@
 		width 30px
 		height @width
 		background-image url('/imgs/icons/bg-advantage.svg')
-		background-color $brand-1
+		background-color $brand-2
 		background-size 100%
 		background-repeat no-repeat
 		background-position 50% 0
@@ -70,11 +70,12 @@
 // Portfolio
 // ===================================================================================================================
 
-.work-card
+.work-card // a
 	display block
 	background $brand-white
 	box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.25)
 	margin-bottom 2rem // 32px
+	border 0 // Отмена дефолтного тонкого подчёркивания
 	&:hover
 		cursor pointer
 	&__img
@@ -90,16 +91,18 @@
 				height 230px
 	&__caption
 		padding 0.5rem 0 0.5rem 0.5rem // 8px
-		&__name
-			margin-bottom 0.5rem
-			display inline-block
-			line-height 1
-			thin-underline()
-			^[0]:hover &
-				thin-underline-hover()
-		&__desc
-			font-size $font-size-sm
-			color alpha($brand-1, 65%)
+	&__name
+		margin-bottom 0.3rem
+		display inline-block
+		line-height 1
+		@extend $thin-underline--default
+		^[0]:hover &
+			@extend $thin-underline--hover
+		^[0]:active &
+			@extend $thin-underline--active
+	&__desc
+		font-size $font-size-sm
+		color $brand-light-gray
 
 
 
@@ -113,11 +116,24 @@
 		margin-left 0.5rem // 8px
 		padding-left 1rem // 8px
 		list-style none
-		background-image url('/imgs/marker-squared.svg')
+		//background-image url('/imgs/marker-squared.svg')
 		background-repeat no-repeat
 		// Adaptive
 		background-position 0 8px
 		background-size 4px
+		position relative // Для псевдоэлемента
+		&:before
+			content ''
+			display: block
+			height 6px
+			width @height
+			position absolute
+			top 8px
+			left 0
+			border-radius 50%
+			background $brand-2
+			
+		
 		+media(md)
 			background-size 5px
 		+media(lg)
@@ -154,6 +170,8 @@
 // ===================================================================================================================
 
 .xp-card
+	$label-color = $brand-2
+	
 	position relative
 	flex-direction column
 	+media(sm)
@@ -166,8 +184,9 @@
 			text-align right
 	&__name
 		font-weight bold
+		color darken(desaturate($label-color, 85%), 35%)
 	&__date
-		color darken($brand-2, 30)
+		color darken($brand-3, 30)
 		font-size $font-size-xs
 		+media(sm)
 			margin-right 0.5rem // 8px
@@ -176,8 +195,8 @@
 			position relative
 			white-space nowrap
 			font-size inherit
-			color #9d8bff // ???????????
-			border 1px solid #9d8bff
+			color $label-color
+			border 1px solid $label-color
 	&__desc
 		font-size $font-size-md
 		color $brand-light-gray
@@ -195,7 +214,7 @@
 			bottom -19px
 			left 83px
 			width 1px
-			border-left 1px dashed #9d8bff
+			border-left 1px dashed $label-color
 		+media(md)
 			bottom -21px
 			top 26px
@@ -211,7 +230,7 @@
 			top 24px
 			right 16px
 			padding 3px
-			border solid #9d8bff
+			border solid $label-color
 			border-width 0 1px 1px 0
 			transform rotate(-135deg)
 		+media(md)
@@ -227,16 +246,28 @@
 // Contacts
 // ===================================================================================================================
 
-.contact-link
-	line-height 0
+.contact-item
 	&:not(:last-of-type)
-		margin 0.5rem 0
+		margin-bottom 0.5rem
+	&__lnk // a
+		vertical-align top // Без этого у li высота больше, чем у его дочерних элементов
+		border 0 // Отмена дефолтного тонкого подчёркивания
+		// Тонкое подчёркивание у __text при наведении на __lnk
+		&:hover ^[0]__text
+			@extend $thin-underline--hover
+		&:active ^[0]__text
+			@extend $thin-underline--active
+	&__text
+		line-height 1.2
+		@extend $thin-underline--default
+			
+		
 
 .contact-sprite
 	list-style none
 
 // Contact icons
-.contact-link__icon
+.contact-item__lnk
 	display inline-flex
 	align-items center
 	&:before

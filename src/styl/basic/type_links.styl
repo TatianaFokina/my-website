@@ -1,36 +1,45 @@
+// Тонкое подчёркивание
+
+$thin-underline-opacity = 20%
+
+$thin-underline--default
+	border-bottom 2px solid
+	border-bottom-color alpha($links-color, $thin-underline-opacity)
+
+$thin-underline--hover
+	border-bottom-color alpha($links-color--hover, $thin-underline-opacity)
+$thin-underline--active
+	border-bottom-color alpha(darken($links-color--hover, 50%), $thin-underline-opacity)
+		
+
+
 a
-	color $brand-1
+	color $links-color
 	text-decoration none
-	transition color 0.2s ease
-	& span
-		thin-underline()
-	&:hover span
-		thin-underline-hover()
-	// Line height for contacts
-	& .contact-link__text
-		line-height 1
-	
-	
-	
-	
+	transition color 0.2s ease, border-color 0.2s ease
+	@extend $thin-underline--default
 	&:hover
 		color $links-color--hover
-	
+		@extend $thin-underline--hover
 	&:active
-		color #f00
+		color darken($links-color--hover, 50%)
+		@extend $thin-underline--active
+	/*&:focus
+		$color = #a6c8ff
+		background: alpha($color, 50%)
+		outline-offset: 2px
+		outline: $color solid 2px*/
+
+
+
 	
-	
-	// Outline for links and work card
-	&:focus
-		outline 3px dotted $brand-3
-		outline-offset 2px
 
 // Outline for nav
-nav a
+/*nav a
 	&:focus
-		outline 3px dotted $brand-3
+		outline 3px dotted $brand-2
 		outline-offset 0
-		background lighten($brand-light-gray, 86%)
+		background lighten($brand-light-gray, 86%)*/
 
 //a:not([href]):not([tabindex])
 //	color: inherit

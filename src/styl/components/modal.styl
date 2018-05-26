@@ -1,7 +1,6 @@
 @import '../mixins/mixins__custom.styl'
 
-$modal-header__bg = #e0e0e0
-$modal-header__bg--hover = darken($modal-header__bg, 5%)
+$modal-header__bg = #2d2d2d
 :root
 	--modal__padding: 16px
 +media(md)
@@ -10,10 +9,6 @@ $modal-header__bg--hover = darken($modal-header__bg, 5%)
 
 
 
-
-// ===================================================================================================================
-// Универсальные свойства, которые можно применить к другим модальным окнам или на других проектах
-// ===================================================================================================================
 
 .modal-container
 	display none
@@ -26,7 +21,7 @@ $modal-header__bg--hover = darken($modal-header__bg, 5%)
 	width 100%
 	z-index 9990
 	background $brand-white //$brand-1--3 //alpha(#424242, 0.95)
-	//background-image: linear-gradient(120deg, $brand-2 0%, #ebedee 100%)
+	//background-image: linear-gradient(120deg, $brand-3 0%, #ebedee 100%)
 	overflow-x hidden
 	cursor pointer
 
@@ -50,30 +45,39 @@ $modal-header__bg--hover = darken($modal-header__bg, 5%)
 		height 8px * 5
 		position sticky
 		top 0 // for 'sticky'
+		z-index 9999
 		@extend .d-flex
 		align-items center
-		background darken($brand-1--3, 10%) //$modal-header__bg
+		background $modal-header__bg
+		color #fff
 	&__title
 		margin 0
 		position relative
-		font-size $font-size-h3 // 21px
-	
-	
+		line-height 1.2
+		
+		// Adaptive
+		font-size 0.9rem
+		+media(md)
+			font-size $font-size-h3 // 21px
 	
 		
 	&__pager
 		@extend .d-flex
 		height 100%
-		margin 0 2vw 0 auto
+		
+		// Adaptive
+		margin-left auto
+		+media(md)
+			margin-right 2vw
+		
 		&__prev
 		&__next
-			width: 50px
 			height 100%
 			@extend .btn-reset
 			background no-repeat 50% 50% svg-load('../imgs/icons/pager-arrow.svg')
-			background-size auto 1rem
 			flex 1 0 auto
 			cursor pointer
+		
 		&__prev
 			transform rotate(180deg)
 	
@@ -84,26 +88,67 @@ $modal-header__bg--hover = darken($modal-header__bg, 5%)
 		height 100%
 		@extend .btn-reset
 		background no-repeat 50% 50% svg-load('../imgs/icons/close.svg')
-		background-size 19px
+		
 		
 	&__pager__prev
 	&__pager__next
 	&__close-btn
 		outline 0
+		background-size auto 1rem
 		&:hover
-			background-color $modal-header__bg--hover
+			background-color lighten($modal-header__bg, 5%)
 		&:active
-			//background-color hsl(hue($brand-1), 20, lightness($modal-header__bg--hover))
-			background-color darken($modal-header__bg--hover, 10%)
+			background-color lighten($modal-header__bg, 15%)
+			
+		// Adaptive
+		width 40px
+		+media(md)
+			width 50px
 			
 		
 	// Header of content block
 	&__content-header
 		padding calc(var(--modal__padding) - 8px) var(--modal__padding)
-		font-size $font-size-sm // 13px
-		background $brand-1--3 //lighten($modal-header__bg, 35%)
+		font-size $font-size-sm // 1px
+		background lighten(#cfd8dc, 30%)
+	&__date
+		opacity 0.6
+		
+		
 		
 	// Content
 	&__content
 		padding var(--modal__padding)
 		padding-bottom calc(var(--modal__padding) * 2)
+		h4
+			margin-top 3rem
+			
+			
+			
+			
+			
+// Screenshots
+.work-img
+	display inline-block
+	// Screenshot border
+	&-inr
+		display table
+		border 4px solid $brand_gray-lightest
+		+media(sm)
+			margin-bottom 1.5rem
+		+media(lg)
+			margin-bottom 2rem
+	
+	&__img
+		@extend .img-fluid
+	// Caption style
+	&__caption
+		padding 2px 10px
+		font-size 0.8rem
+		font-style italic
+		color $brand_gray-light
+
+
+// CodePen
+#cp_embed_mMreRr
+	background-color $brand_gray-lighter

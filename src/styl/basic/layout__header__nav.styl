@@ -40,11 +40,14 @@
 		@extend .d-flex
 		justify-content center
 		align-items center
+		border 0 // Отмена дефолтного тонкого подчёркивания
+		color $links-color !important
 		&:hover
-			//color lighten($brand-2, 10%)
-			background $brand-2
+			background lighten($brand-3, 40%)
 		&.active
-			background darken($brand-2, 10%)
+			background lighten($brand-3, 10%)
+		^[0]__title
+			@extend $thin-underline--default
 			
 		// Adaptive
 		height 32px + 8
@@ -71,6 +74,7 @@
 			
 	&__title
 		line-height: 1.2
+		
 
 
 // Fixed for bug with hidden items when you expand or collapse menu

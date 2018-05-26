@@ -7,15 +7,15 @@ mixin repeat(limit)
 
 
 //-Work image without caption
-//mixin project-img(src)
-	img(src=src alt='').work-img
+	mixin project-img(src)
+		img(src=src alt='').work-img
 
 //-Work image with caption and cut link
 mixin project-img-with-caption(src, caption, alt)
 	.work-img
 		figure.work-img-inr
-			img(src='/imgs/portfolio' + src alt=alt).work-img__img
 			figcaption.work-img__caption= caption
+			img(src='/imgs/portfolio' + src alt=alt).work-img__img
 
 
 
@@ -31,9 +31,9 @@ mixin advantage(text)
 
 //-Contact icons
 mixin contacts(href, text, classPref)
-	li.contact-link
-		a(href= href target='_blank' rel='noopener noreferrer' class='contact-link__icon' + classPref).contact-link__icon
-			span.contact-link__text= text
+	li.contact-item
+		a(href= href target='_blank' rel='noopener noreferrer' class='contact-item__lnk contact-item__lnk' + classPref)
+			span.contact-item__text= text
 
 
 
@@ -44,5 +44,5 @@ mixin work(name, desc, ajax_data, img)
 		a.work-card(data-work=ajax_data)
 			.work-card__img(style="background-image: url(" + img + ");")
 			.work-card__caption
-				.work-card__caption__name= name
-				.work-card__caption__desc= desc
+				.work-card__name= name
+				.work-card__desc= desc
