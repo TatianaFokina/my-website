@@ -44,7 +44,7 @@
 		color $links-color !important
 		&:hover
 			background lighten($brand-3, 40%)
-		&.active
+		^[-1].active &
 			background lighten($brand-3, 10%)
 		^[0]__title
 			@extend $thin-underline--default

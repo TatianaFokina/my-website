@@ -4,7 +4,7 @@ include ../-helpers/mixins
 doctype html
 html(lang="ru")
 	include -templates-includes/head--inc
-	body
+	body(data-spy="scroll" data-target=".nav-item__lnk" data-offset="50")
 
 		//-Шапка
 		include -templates-includes/header--inc
