@@ -4,25 +4,25 @@ $thin-underline-opacity = 20%
 
 $thin-underline--default
 	border-bottom 2px solid
-	border-bottom-color alpha($links-color, $thin-underline-opacity)
+	border-bottom-color alpha($link-color, $thin-underline-opacity)
 
 $thin-underline--hover
-	border-bottom-color alpha($links-color--hover, $thin-underline-opacity)
+	border-bottom-color alpha($link-color--hover, $thin-underline-opacity)
 $thin-underline--active
-	border-bottom-color alpha(darken($links-color--hover, 50%), $thin-underline-opacity)
+	border-bottom-color alpha(darken($link-color--hover, 50%), $thin-underline-opacity)
 		
 
 
 a
-	color $links-color
+	color $link-color
 	text-decoration none
 	transition color 0.2s ease, border-color 0.2s ease
 	@extend $thin-underline--default
 	&:hover
-		color $links-color--hover
+		color $link-color--hover
 		@extend $thin-underline--hover
 	&:active
-		color darken($links-color--hover, 50%)
+		color darken($link-color--hover, 50%)
 		@extend $thin-underline--active
 	/*&:focus
 		$color = #a6c8ff
