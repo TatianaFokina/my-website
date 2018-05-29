@@ -114,14 +114,14 @@ $(function() {
 		if ($modal_now === $links_amount || $modal_now <= 0 || $modal_now > $links_amount) {
 			$modal_now = 1; // Сбрасываем счётчик
 			removeAllOpenedFlags(); // - классы для всех ссылок
-			$modal_contentFirst.addClass($link_opened); // + класс для ссылки
+			setAsOpened($modal_contentFirst); // + класс для ссылки
 			loadToModal($modal_contentFirst_src); // Вставляем содержимое из первой ссылки
 
 		}
 		// Для перехода к следующему элементу
 		else {
 			removeAllOpenedFlags(); // - классы для всех ссылок
-			$modal_contentNext.addClass($link_opened); // + класс для ссылки
+			setAsOpened($modal_contentNext); // + класс для ссылки
 			$modal_now++;
 			loadToModal($modal_contentNext_src);
 		}
@@ -139,14 +139,14 @@ $(function() {
 		if ($modal_now === 1 || $modal_now <= 0 || $modal_now > $links_amount) {
 						$modal_now = $links_amount; // Устанавливаем максимальное значение
 			removeAllOpenedFlags(); // - классы для всех ссылок
-			$modal_contentLast.addClass($link_opened); // + класс для ссылки
+			setAsOpened($modal_contentLast); // + класс для ссылки
 			loadToModal($modal_contentLast_src);
 		}
 		// Для перехода к предыдущему элементу
 		else {
 			$modal_now--;
 			removeAllOpenedFlags(); // - классы для всех ссылок
-			$modal_contentPrev.addClass($link_opened); // + класс для ссылки
+			setAsOpened($modal_contentPrev); // + класс для ссылки
 			loadToModal($modal_contentPrev_src);
 
 		}
