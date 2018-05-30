@@ -1,106 +1,97 @@
-// M I X I N S
-// =============================================================
+// ===================================================================================================================
+// Button variant
+// ===================================================================================================================
 
-// Button Variant
-// -------------------------
-
-// background-color + color
-//
 button-variant__color-bg($color, $bg-color)
 	color $color
 	background-color $bg-color
-// hover
+
+// :hover
 button-variant__color-bg--hover($color, $bg-color)
 	&:hover
 		color $color
 		background-color $bg-color
-// active
+
+// :active
 button-variant__color-bg--active($color, $bg-color)
 	&:active
 	&.active
 		color: $color;
 		background $bg-color none;
 
-		
-		
-// BORDER
+
+
+// ===================================================================================================================
+// Button border
+// ===================================================================================================================
+
 // border-width
 button-variant__border-width($width)
 	border-width $width
 
-//border-color
+// border-color
 button-variant__border-color($color)
 	border-color $color
 
-//border-color_hove
+// border-color:hover
 button-variant__border-color_hover($color)
 	&:hover
 		border-color $color
 
-//border-color--active
+// border-color:active
 button-variant__border-color--active($color)
 	&:focus
 	&:active
 	&.active
 		border-color $color
 
-//border-color--disabled
+// border-color:disabled
 button-variant__border-color--disabled($color)
 	&.disabled
 	&[disabled]
 	fieldset[disabled] &
 		border-color $color
-		
-		
-		
-		
+
+
+
+
+// ===================================================================================================================
 // Button sizes
-// -------------------------
+// ===================================================================================================================
+
 button-size($padding, $font-size, $border-radius)
 	padding $padding
 	font-size $font-size
 	border-radius $border-radius
 
 
-// =============================================================
-	
 
 
+// ===================================================================================================================
+// Common button style
+// ===================================================================================================================
 
-
-
-
-
-
-
-// Общие свойства для всех кнопок
-// --------------------------------------------------
 $btn1
 	display inline-block
-	button-size($padding:8px 20px, $font-size:1rem, $border-radius:4px)
-	margin-bottom 0 // For input.btn
+	button-size($padding: 8px 20px, $font-size: 1rem, $border-radius: 4px)
+	margin-bottom 0 // for input.btn
 	font-weight normal
 	line-height 1
 	text-align center
-	vertical-align: middle
+	vertical-align middle
 	cursor pointer
-	background-image none // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	background-image none // reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
 	white-space nowrap
 	user-select none
 	text-decoration none
-	//outline 0
-	border-style solid // отменяет стандартный стиль для <button>
+	border-style solid // delete default <button> style
 	&.disabled
 	&[disabled]
 	fieldset[disabled] &
 		cursor not-allowed
-		pointer-events none // Future-proof disabling of clicks
+		pointer-events none // future-proof disabling of clicks
 		opacity 0.65
 		box-shadow none
-	
-
-
-
 
 .btn
 	@extend $btn1
@@ -114,20 +105,3 @@ $btn1
 	button-variant__border-color($color: $color-l)
 	//button-variant__border-color_hover($color:)
 	button-variant__border-color--active($color: $color-l)
-
-.btn--2
-input[type="button"]
-input[type="submit"]
-input[type="reset"]
-	@extend $btn1
-	$color-l=$brand_gray
-	button-variant__color-bg($color: $color-l, $bg-color: transparent) // color + bg
-	button-variant__color-bg--hover($color: $color-l, $bg-color: alpha($color-l, 0.1)) // hover
-	//button-variant__color-bg--active($color: $color-l, $bg-color: $color-l) // active
-	
-	// Border
-	button-variant__border-width($width: 1px)
-	button-variant__border-color($color: $color-l)
-	//button-variant__border-color_hover($color:)
-	button-variant__border-color--active($color: $color-l)
-	

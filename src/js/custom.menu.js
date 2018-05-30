@@ -3,29 +3,28 @@ $(function() {
 	var $link = '.js-expand-lnk';
 	var $block = '.js-expand-block';
 
-
-	// Проверяет ширину страницы
+	// Check page width
 	function checkWindowWidth() {
-		if ($(window).width() <= 750) { // todo поменять значение
+		if ($(window).width() < 576) {
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
-	// Инициализация при загрузке страницы
+	// Initialization at page load
 	checkWindowWidth();
-	// Инициализация при ресайзе окна
+	// Initialization at resize window
 	$(window).resize(checkWindowWidth);
 
-	// При клике на гамбургер или пункт меню
+	// Click to hamburger or menu item
 	$($link + ', .nav-item__lnk').click(function() {
 		if (checkWindowWidth()) {
 			$($link).toggleClass('in').next($block).slideToggle();
 		}
 	});
 
-	// Меню закрывается при клике на .content
+	// Click to .content => close menu
 	$('.content, .js-scroll-to-top, footer').click(function() {
 		if (checkWindowWidth()) {
 			$($link).removeClass('in').next($block).slideUp();

@@ -1,15 +1,14 @@
-/*
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2018 Twitter, Inc.
+/* ========================================================================
+ * Bootstrap: scrollspy.js v3.3.7
+ * http://getbootstrap.com/javascript/#scrollspy
+ * ========================================================================
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+ * ======================================================================== */
 
-/*
- * Generated using the Bootstrap Customizer (<none>)
- * Config saved to config.json and <none>
- */
 
-// Модифицирован: 43 строка. Убран обязательный класс nav у тега ul. Теперь в html, в data-target можно указать класс ссылки меню.
+
+// 43 line: modification. Remove ul witn class 'nav'. Now you can specify class of the menu link (html & data-target)
 if (typeof jQuery === 'undefined') {
 	throw new Error('Bootstrap\'s JavaScript requires jQuery')
 }
@@ -21,21 +20,15 @@ if (typeof jQuery === 'undefined') {
 	}
 }(jQuery);
 
-/* ========================================================================
- * Bootstrap: scrollspy.js v3.3.7
- * http://getbootstrap.com/javascript/#scrollspy
- * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+
 
 
 +function ($) {
 	'use strict';
 
-	// SCROLLSPY CLASS DEFINITION
-	// ==========================
-
+	/*========================================================
+	Scrollspy class definition
+	========================================================*/
 	function ScrollSpy(element, options) {
 		this.$body          = $(document.body)
 		this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
@@ -153,9 +146,9 @@ if (typeof jQuery === 'undefined') {
 	}
 
 
-	// SCROLLSPY PLUGIN DEFINITION
-	// ===========================
-
+	/*========================================================
+	Scrollspy plugin definition
+	========================================================*/
 	function Plugin(option) {
 		return this.each(function () {
 			var $this   = $(this)
@@ -173,18 +166,18 @@ if (typeof jQuery === 'undefined') {
 	$.fn.scrollspy.Constructor = ScrollSpy
 
 
-	// SCROLLSPY NO CONFLICT
-	// =====================
-
+	/*========================================================
+	Scrollspy no conflict
+	========================================================*/
 	$.fn.scrollspy.noConflict = function () {
 		$.fn.scrollspy = old
 		return this
 	}
 
 
-	// SCROLLSPY DATA-API
-	// ==================
-
+	/*========================================================
+	Scrollspy data-API
+	========================================================*/
 	$(window).on('load.bs.scrollspy.data-api', function () {
 		$('[data-spy="scroll"]').each(function () {
 			var $spy = $(this)

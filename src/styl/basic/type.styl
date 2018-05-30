@@ -10,14 +10,14 @@ h4
 	line-height $headings-line-height
 	color $headings-color
 
-/*h1
-	font-size $font-size-h1*/
+h1
+	display none
 
 h2
 	margin-bottom 1.5rem // 24px
 	padding-bottom 0.5rem // 8px
 	
-	// Для правильного скролла к якорю
+	// Smooth scroll to an anchor
 	margin-top -5.313rem // 85px
 	padding-top 5.313rem
 	
@@ -64,8 +64,6 @@ p
 
 .list-inline-item
 	display inline-block
-	//&:not(:last-child)
-	//	margin-right $list-inline-padding
 
 ol,
 ul,
@@ -77,6 +75,9 @@ ol ol,
 ul ul,
 ol ul,
 ul ol
+	margin-bottom 0
+
+ul:last-of-type
 	margin-bottom 0
 
 

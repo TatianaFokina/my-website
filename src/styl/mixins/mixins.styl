@@ -16,7 +16,7 @@ media-down($breakpoint-name)
 		@media (max-width: unquote($val["breakpoint"]) - 1)
 			{block}
 
-// Создаёт медиазапросы
+// Сreate media queries
 media-breakpoint-up($name, $width-min)
 	if $width-min > 0
 		@media (min-width: $width-min)

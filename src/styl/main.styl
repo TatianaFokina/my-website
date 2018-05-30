@@ -30,7 +30,7 @@
 	width 100%
 	// Adaptive
 	flex-direction column
-	justify-content start
+	justify-content flex-start
 	flex-wrap wrap
 	+media(sm)
 		flex-direction row
@@ -51,7 +51,7 @@
 		margin-right 8px
 		width 30px
 		height @width
-		background-image url('/imgs/icons/bg-advantage.svg')
+		background-image url('../imgs/icons/bg-advantage.svg')
 		background-color $brand-2
 		background-size 100%
 		background-repeat no-repeat
@@ -75,7 +75,7 @@
 	background $brand-white
 	box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.25)
 	margin-bottom 2rem // 32px
-	border 0 // Отмена дефолтного тонкого подчёркивания
+	border 0 // Cancel of default thin underline
 	&:hover
 		cursor pointer
 	&__img
@@ -116,12 +116,11 @@
 		margin-left 0.5rem // 8px
 		padding-left 1rem // 8px
 		list-style none
-		//background-image url('/imgs/marker-squared.svg')
 		background-repeat no-repeat
 		// Adaptive
 		background-position 0 8px
 		background-size 4px
-		position relative // Для псевдоэлемента
+		position relative // For pseudo-element
 		&:before
 			content ''
 			display: block
@@ -246,6 +245,7 @@
 
 
 
+
 // ===================================================================================================================
 // Contacts
 // ===================================================================================================================
@@ -254,9 +254,9 @@
 	&:not(:last-of-type)
 		margin-bottom 0.5rem
 	&__lnk // a
-		vertical-align top // Без этого у li высота больше, чем у его дочерних элементов
-		border 0 // Отмена дефолтного тонкого подчёркивания
-		// Тонкое подчёркивание у __text при наведении на __lnk
+		vertical-align top // without this rule li higher than children
+		border 0 // cancel of default thin underline
+		// Thin underline of __text hover to __lnk
 		&:hover ^[0]__text
 			@extend $thin-underline--hover
 		&:active ^[0]__text
@@ -264,8 +264,9 @@
 	&__text
 		line-height 1.2
 		@extend $thin-underline--default
-			
-		
+
+
+
 
 .contact-sprite
 	list-style none
@@ -276,7 +277,8 @@
 	align-items center
 	&:before
 		margin-right 0.5rem // 8px
-		link-icon($width: 28px, $height: $width, $bg-img: url('../imgs/icons/contact-sprite.svg'), $bg-size: auto 28px)
+		link-icon($width: 28px, $height: $width, $bg-img: url('../imgs/icons/contacts-sprite.svg'), $bg-size: auto 28px)
+		//transition all 0.2s ease
 	&--mail:before
 		background-position 0 0
 	&--telegram:before
@@ -291,15 +293,19 @@
 		background-position-x -145px
 	&--fl:before
 		background-position-x -174px
-	
-	
-	
-	
-	
-	
-	
-	// Поведение иконок при наведении
-	//.a
-	//	transition all 0.2s ease
-	//&:hover .a
-	//	fill lighten($brand-1, 10%)
+		
+	// Hover
+	&--mail:hover:before
+		background-position -203px
+	&--telegram:hover:before
+		background-position-x -232px
+	&--skype:hover:before
+		background-position-x -261px
+	&--fb:hover:before
+		background-position-x -290px
+	&--hh:hover:before
+		background-position-x -319px
+	&--github:hover:before
+		background-position-x -348px
+	&--fl:hover:before
+		background-position-x -377px
