@@ -82,11 +82,11 @@ $(function() {
 		modal_closure();
 	});
 
-	// Click on .modal-container (+ children) => close
+	// Close on .modal-container (+ children) click
 	$($modal).click(function() {
 		modal_closure();
 	});
-	// Click on .modal => not to close
+	// Don't close on .modal click
 	$('.modal').click(function(event){
 		event.stopPropagation();
 	});

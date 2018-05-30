@@ -1,49 +1,51 @@
 // ========================================================================
 // Подключение модулей
 // ========================================================================
-var gulp = require('gulp');
-CompileStylus = require('gulp-stylus');
-pug           = require('gulp-pug');
-fs            = require("fs");
-pugBeautify   = require('gulp-pug-beautify');
-browserSync   = require('browser-sync');
-// Для конкатенации файлов
-concat        = require('gulp-concat');
-// Для сжатия JS
-uglify        = require('gulp-uglify');
-// Для минификации CSS
-cssnano       = require('gulp-cssnano');
-// Для переименования файлов
-rename        = require('gulp-rename');
-// Для удаления файлов и папок
-del           = require('del');
-// Библиотека кеширования
-cache         = require('gulp-cache');
-// Для автоматического добавления префиксов
-autoprefixer  = require('gulp-autoprefixer');
-// Для работы с изображениями
-imagemin      = require('gulp-imagemin');
-// Для сжатия png
-pngquant      = require('imagemin-pngquant');
-// Для сжатия jpg
-imageminJpegtran = require('imagemin-jpegtran');
-// Для сжатия gif
-imageminGifsicle = require('imagemin-gifsicle');
-// Для сжатия svg
-imageminSvgo = require('imagemin-svgo');
-gulp_postcss = require('gulp-postcss');
-datauri = require('postcss-data-uri');
-// Объединяет селекторы с одинаковыми свойствами
-mergeRules = require('postcss-merge-rules');
-// Объединяет @media, помещает их в конец css. Не очень хорошо, что базовые свойства макета находятся в конце файла
-//combineCssMedia = require('css-mqpacker');
-htmlbeautify = require('gulp-html-beautify');
-plumber = require('gulp-plumber');
-notify = require("gulp-notify");
-// Меняет пути к файлам в css
-modifyCssUrls = require('gulp-modify-css-urls');
-postcss_inline_svg = require('postcss-inline-svg');
-replace = require('gulp-replace');
+var gulp = require('gulp'),
+	CompileStylus = require('gulp-stylus'),
+	pug           = require('gulp-pug'),
+	fs            = require("fs"),
+	pugBeautify   = require('gulp-pug-beautify'),
+	browserSync   = require('browser-sync'),
+	// Для конкатенации файлов
+	concat        = require('gulp-concat'),
+	// Для сжатия JS
+	uglify        = require('gulp-uglify'),
+	// Для минификации CSS
+	cssnano       = require('gulp-cssnano'),
+	// Для переименования файлов
+	rename        = require('gulp-rename'),
+	// Для удаления файлов и папок
+	del           = require('del'),
+	// Библиотека кеширования
+	cache         = require('gulp-cache'),
+	// Для автоматического добавления префиксов
+	autoprefixer  = require('gulp-autoprefixer'),
+	// Для работы с изображениями
+	imagemin      = require('gulp-imagemin'),
+	// Для сжатия png
+	pngquant      = require('imagemin-pngquant'),
+	// Для сжатия jpg
+	imageminJpegtran = require('imagemin-jpegtran'),
+	// Для сжатия gif
+	imageminGifsicle = require('imagemin-gifsicle'),
+	// Для сжатия svg
+	imageminSvgo = require('imagemin-svgo'),
+	gulp_postcss = require('gulp-postcss'),
+	datauri = require('postcss-data-uri'),
+	// Объединяет селекторы с одинаковыми свойствами
+	mergeRules = require('postcss-merge-rules'),
+	// Объединяет @media, помещает их в конец css. Не очень хорошо, что базовые свойства макета находятся в конце файла
+	combineCssMedia = require('css-mqpacker');
+	htmlbeautify = require('gulp-html-beautify'),
+	plumber = require('gulp-plumber'),
+	notify = require("gulp-notify"),
+	// Меняет пути к файлам в css
+	modifyCssUrls = require('gulp-modify-css-urls'),
+	postcss_inline_svg = require('postcss-inline-svg'),
+	replace = require('gulp-replace'),
+	// Убирает неиспользуемые стили
+	purify = require('gulp-purifycss');
 
 
 
@@ -58,7 +60,7 @@ gulp.task('__compileStylus', function () {
 	var $postcss_plugins = [
 		postcss_inline_svg,
 		mergeRules
-	]
+	];
 
 	return gulp.src('src/styl/styles.styl')
 		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
@@ -85,7 +87,7 @@ gulp.task('__compileStylus_dist', function () {
 		/*combineCssMedia({
 			sort: true
 		})*/
-	]
+	];
 
 	return gulp.src('src/styl/all.styl')
 		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
@@ -224,7 +226,7 @@ gulp.task('Build--Test', ['__compileStylus', '__mergeJS', '__compilePug'], funct
 });
 
 // → "dist"
-gulp.task('Build', ['__delDist', '__compileStylus', '__mergeJS'], function() {
+gulp.task('Build', ['__delDist', '__compileStylus', '__mergeJS', '__compilePug'], function() {
 	// Шрифты
 	gulp.src('src/fonts/**/*')
 		.pipe(gulp.dest('dist/fonts'));
@@ -256,20 +258,30 @@ gulp.task('Build', ['__delDist', '__compileStylus', '__mergeJS'], function() {
 		.pipe(gulp.dest("dist"));
 
 	// CSS
+	var $postcss_plugins = [
+		combineCssMedia({
+			sort: false
+		})
+	];
+
 	gulp.src('test/css/**/*.css')
-	// Добавляем суффикс .min
-	//.pipe(rename({suffix: '.min'}))
-	/*.pipe(modifyCssUrls({ // Меняет пути к файлам в css
-		modify: function (url, filePath) {
-			return '/assets/dist' + url;
-		}/!*,
-		prepend: 'https://fancycdn.com/',
-		append: '?cache-buster'*!/
-	}))*/
-	// Меняет пути к файлам в css
-	//.pipe(replace('\"/fonts', '\"/assets/dist/fonts'))
-	//.pipe(replace('\'/fonts', '\'/assets/dist/fonts'))
-	// Сжимаем
+		.pipe(purify(['test/**/*.html'], { // Убирает неиспользуемые стили
+			whitelist: require('./src/js/whitelist-purify.json') // Массив с селекторами. Array of selectors to always leave in. Ex. ['button-active', '*modal*'] this will leave any selector that includes modal in it and selectors that match button-active. (wrapping the string with *'s, leaves all selectors that include it)
+		}))
+		.pipe(gulp_postcss($postcss_plugins))
+		// Добавляем суффикс .min
+		//.pipe(rename({suffix: '.min'}))
+		/*.pipe(modifyCssUrls({ // Меняет пути к файлам в css
+			modify: function (url, filePath) {
+				return '/assets/dist' + url;
+			}/!*,
+			prepend: 'https://fancycdn.com/',
+			append: '?cache-buster'*!/
+		}))*/
+		// Меняет пути к файлам в css
+		//.pipe(replace('\"/fonts', '\"/assets/dist/fonts'))
+		//.pipe(replace('\'/fonts', '\'/assets/dist/fonts'))
+		// Сжимаем
 		.pipe(cssnano())
 		// Сохраняем в папку
 		.pipe(gulp.dest('dist/css'));
