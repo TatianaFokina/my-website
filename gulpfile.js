@@ -268,7 +268,7 @@ gulp.task('Build', ['__delDist', '__compileStylus', '__mergeJS', '__compilePug']
 		.pipe(purify(['test/**/*.html'], { // Убирает неиспользуемые стили
 			whitelist: require('./src/js/whitelist-purify.json') // Массив с селекторами. Array of selectors to always leave in. Ex. ['button-active', '*modal*'] this will leave any selector that includes modal in it and selectors that match button-active. (wrapping the string with *'s, leaves all selectors that include it)
 		}))
-		.pipe(gulp_postcss($postcss_plugins))
+		//.pipe(gulp_postcss($postcss_plugins))
 		// Добавляем суффикс .min
 		//.pipe(rename({suffix: '.min'}))
 		/*.pipe(modifyCssUrls({ // Меняет пути к файлам в css

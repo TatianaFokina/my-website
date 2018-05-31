@@ -83,14 +83,14 @@ $modal-header__bg = #2d2d2d
 		font-size 1.313rem // 21px
 		width 50px
 		height 100%
-		@extend .btn-reset
+		
 		background no-repeat 50% 50% svg-load('../imgs/icons/close.svg')
 		
 	// Next & prev buttons
 	&__pager__prev
 	&__pager__next
 	&__close-btn
-		outline 0
+		@extend .btn-reset
 		background-size auto 1rem
 		&:hover
 			background-color lighten($modal-header__bg, 5%)
