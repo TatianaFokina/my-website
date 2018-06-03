@@ -50,10 +50,10 @@ $(function() {
 	========================================================*/
 	$($link).click(function () {
 		$('html').css('overflow', 'hidden');
-		$($modal).css('display', 'flex')
+		$($modal).css('display', 'flex').attr('aria-hidden', 'false')
 			.scrollTop(0); // scroll to top
 
-		var $modal_content_src = $(this).data("work"); // reads name of file with work ('data-work' attribute)
+		var $modal_content_src = $(this).data('work'); // reads name of file with work ('data-work' attribute)
 
 		$modal_now = $(this).index($link) + 1; // records the order number of current item (+1 because the count starts at 0)
 		loadToModal($modal_content_src);
@@ -72,7 +72,7 @@ $(function() {
 
 	// Function of close window
 	function modal_closure(){
-		$($modal).css('display', 'none'); // hidden window
+		$($modal).css('display', 'none').attr('aria-hidden', 'true'); // hidden window
 		$('html').css('overflow', 'auto'); // return scrollbars
 		removeAllOpenedFlags(); // remove all js--opened classes of all links
 	}
