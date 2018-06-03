@@ -1,44 +1,47 @@
 //-Repeat
-mixin repeat(limit)
-	- for (var i = 1; i <= limit; i++)
+mixin repeat($limit)
+	- for (var i = 1; i <= $limit; i++)
 		block
 
 
 
 
 //-Work image with caption and cut link
-mixin project-img-with-caption(src, caption, alt)
+mixin project-img-with-caption($src, $caption, $alt)
 	.work-img
 		figure.work-img-inr
-			figcaption.work-img__caption= caption
-			img(src='/imgs/portfolio' + src alt=alt).work-img__img
+			figcaption.work-img__caption= $caption
+			img(src='/imgs/portfolio' + $src alt= $alt).work-img__img
 
 
 
 
 //-Advantages
-mixin advantage(text)
+mixin advantage($text)
 	.advantage.media
 		.advantage__bullet
-		.advantage__text= text
+		.advantage__text= $text
 
 
 
 
-//-Contact icons
-mixin contacts(href, text, classPref)
+//-Contacts
+mixin contacts($href, $text, $classPref, $targetBlank)
 	li.contact-item
-		a(href= href target='_blank' rel='noopener noreferrer' class='contact-item__lnk contact-item__lnk' + classPref)
-			span.contact-item__text= text
-
+		if ($targetBlank)
+			a(href= $href target='_blank' rel='noopener noreferrer' class='contact-item__lnk contact-item__lnk' + $classPref)
+				span.contact-item__text= $text
+		else
+			a(href= $href class='contact-item__lnk contact-item__lnk' + $classPref)
+				span.contact-item__text= $text
 
 
 
 //-Work card
-mixin work(name, desc, ajax_data, img)
+mixin work($name, $desc, $ajax_data, $img)
 	.col--md-6.col--lg-6
-		a.work-card(data-work=ajax_data)
-			.work-card__img(style="background-image: url(" + img + ");")
+		a.work-card(data-work= $ajax_data href='javascript:void(0)')
+			.work-card__img(style="background-image: url(" + $img + ");")
 			.work-card__caption
-				.work-card__name= name
-				.work-card__desc= desc
+				.work-card__name= $name
+				.work-card__desc= $desc

@@ -29,28 +29,10 @@ a
 	&:active
 		color darken($link-color--hover, 50%)
 		@extend $thin-underline--active
-	/*&:focus
-		$color = #a6c8ff
-		background: alpha($color, 50%)
-		outline-offset: 2px
-		outline: $color solid 2px*/
-
-
-
-
-// ===================================================================================================================
-// Outline
-// ===================================================================================================================
-
-// Navigation
-/*nav a
-	&:focus
-		outline 3px dotted $brand-2
-		outline-offset 0
-		background lighten($brand-light-gray, 86%)*/
-
-//a:not([href]):not([tabindex])
-//	color: inherit
-//	text-decoration: none
-//	&:focus
-//		outline: 0
+	&.focus-visible
+		outline 2px solid $brand-2
+		outline-offset 3px
+	
+// This will hide the focus indicator if the element receives focus via the mouse, but it will still show up on keyboard focus
+.js-focus-visible :focus:not(.focus-visible)
+	outline none

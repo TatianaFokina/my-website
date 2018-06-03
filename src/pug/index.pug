@@ -17,16 +17,15 @@ block content
 								source(media='(min-width: 576px)' srcset='/imgs/hero-photo@737.jpg')
 								img.hero-photo(src='/imgs/hero-photo.jpg' alt='Так выглядит Татьяна')
 						//-Information about me
-						//- todo Убрать предложение про ближайшие планы
 						main.col--md-8.col--lg-6.hero-card-inf
 							h2(id='aboutMe') Обо мне
 							p Параллельно с основной работой в качестве контент-менеджера я верстаю сайты.
-							p Мне нравится учиться, приобретать новые навыки и знания и постоянно совершенствоваться. Одна из моих главный профессиональных целей — стать отличным front-end разработчиком, доводящим каждый свой проект до максимально возможного совершенства. В мои ближайшие планы входит изучение JS и освоение современных фреймворков.
+							p Мне нравится учиться, приобретать новые навыки и знания и постоянно совершенствоваться. Одна из моих главный профессиональных целей — стать отличным front-end разработчиком.
 
 				//-My advantages
 				.advantages
 					+advantage('Всегда на связи')
-					+advantage('Не нарушаю сроки')
+					+advantage('Дружу с дедлайнами')
 					+advantage('Ставка: 400 ₽/ч')
 
 		.striped-section.striped-section--portfolio
@@ -148,12 +147,12 @@ block content
 				h2(id='contacts') Контакты
 				h3 Для связи со мной
 				ul.contact-sprite
-					+contacts('mailto:fokinatatian@gmail.com', 'fokinatatian@gmail.com', '--mail')
-					+contacts('skype:falskenpirogen?chat', 'Telegram', '--telegram')
-					+contacts('skype:falskenpirogen?chat', 'Skype', '--skype')
-					+contacts('https://www.facebook.com/profile.php?id=100001031453259', 'Facebook', '--fb')
+					+contacts('mailto:fokinatatian@gmail.com', 'fokinatatian@gmail.com', '--mail', true)
+					+contacts('https://t.me/fokina_tatiana', 'Telegram', '--telegram', true)
+					+contacts('skype:falskenpirogen?chat', 'Skype', '--skype', false)
+					+contacts('https://www.facebook.com/profile.php?id=100001031453259', 'Facebook', '--fb', true)
 				h3 Сайты
 				ul.contact-sprite
-					+contacts('https://spb.hh.ru/resume/e681acbdff0294fb250039ed1f6137576a6544', 'Резюме на HeadHunter', '--hh')
-					+contacts('https://github.com/TatianaFokina?tab=repositories', 'GitHub', '--github')
-					+contacts('https://www.fl.ru/users/fokinatatiana/', 'FL.ru', '--fl')
+					+contacts('https://spb.hh.ru/resume/e681acbdff0294fb250039ed1f6137576a6544', 'Резюме на HeadHunter', '--hh', true)
+					+contacts('https://github.com/TatianaFokina?tab=repositories', 'GitHub', '--github', true)
+					+contacts('https://www.fl.ru/users/fokinatatiana/', 'FL.ru', '--fl', true)

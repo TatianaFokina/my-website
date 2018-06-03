@@ -92,9 +92,11 @@ $modal-header__bg = #2d2d2d
 	&__close-btn
 		@extend .btn-reset
 		background-size auto 1rem
+		// Hover, active & focus
 		&:hover
 			background-color lighten($modal-header__bg, 5%)
 		&:active
+		&:focus
 			background-color lighten($modal-header__bg, 15%)
 		// Adaptive
 		width 40px
