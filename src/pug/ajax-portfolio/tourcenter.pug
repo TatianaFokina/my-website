@@ -1,0 +1,26 @@
+extends ../-templates/portfolio--tpl.pug
+
+
+block title
+	| Страница сайта туроператора
+
+block desc
+	| Я работала над страницей со вкладками в разделе "Интересы". Нужно было сверстать динамичную страницу с формами для десктопа.
+
+block date
+	| Июль 2018
+
+block link
+	- var $link_enabled = true
+	- var $link = 'https://github.com/TatianaFokina/tourcenter'
+	- var $link_title = 'Репозиторий на Github'
+
+block content
+	p Страница свёрстана на основе дизайн-макета из Figma и дополнений дизайнера.
+	h4 Инструменты
+	p Pug, Stylus, jQuery, собственный CSS-фреймворк, Gulp, WebStorm, Figma.
+
+	h4 Скриншоты проекта и примеры кода
+	+project-img-with-caption('/tourcenter/tourcent-tab.jpg', 'Подборки', 'Страница с подборками туров')
+	+project-img-with-caption('/tourcenter/tourcenter-pug-stars.jpg', 'Рейтинг на Pug', 'Разметка звёд на Pug')
+	+project-img-with-caption('/tourcenter/tourcenter-styl-var.jpg', 'Переменные с цветами в Stylus', 'Переменные в Stylus')
