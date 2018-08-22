@@ -11,9 +11,11 @@ include ../-helpers/mixins
 	block date
 
 block link
-if ($link_enabled)
-	#link
-		a(href= $link rel='noopener noreferrer' target='_blank')= $link_title
+#link
+	if (!!$link)
+		div: a(href= $link rel='noopener noreferrer' target='_blank')= $link_title
+	if (!!$link2)
+		div: a(href= $link2 rel='noopener noreferrer' target='_blank')= $link2_title
 
 #content
 	block content

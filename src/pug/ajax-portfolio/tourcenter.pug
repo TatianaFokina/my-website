@@ -12,15 +12,20 @@ block date
 
 block link
 	- var $link_enabled = true
-	- var $link = 'https://github.com/TatianaFokina/tourcenter'
-	- var $link_title = 'Репозиторий на Github'
+	- var $link = 'https://tatianafokina.github.io/tourcenter/'
+	- var $link_title = 'Демо'
+	- var $link2 = 'https://github.com/TatianaFokina/tourcenter'
+	- var $link2_title = 'Репозиторий на Github'
 
 block content
-	p Страница свёрстана на основе дизайн-макета из Figma и дополнений дизайнера.
+	p На странице расположены вкладки с несколькими подборками туров. Вкладки с одинаковыми наборами полей: название подборки, страны, даты поездки, стоимость тура, рейтинг отелей и так далее.
+	p Поля, кроме рейтинга отелей, интерактивные. При клике на них или при нажатии на tab появляется выпадающее меню со списком нужных опций. Нужный вариант по клику попадает в соответствующее поле. А звёзды в поле с категорией отеля закрашиваются другим при наведении и выбираются по клику.
+	p Скрипты написаны на jQuery, а рейтинг с количеством звёзд — на чистом CSS. Так как макет сделан только для десктопа, то страница не адаптивна.
 	h4 Инструменты
 	p Pug, Stylus, jQuery, собственный CSS-фреймворк, Gulp, WebStorm, Figma.
 
 	h4 Скриншоты проекта и примеры кода
 	+project-img-with-caption('/tourcenter/tourcent-tab.jpg', 'Подборки', 'Страница с подборками туров')
-	+project-img-with-caption('/tourcenter/tourcenter-pug-stars.jpg', 'Рейтинг на Pug', 'Разметка звёд на Pug')
+	+project-img-with-caption('/tourcenter/tourcenter-pug-stars.jpg', 'Рейтинг на Pug', 'Разметка звёзд на Pug')
 	+project-img-with-caption('/tourcenter/tourcenter-styl-var.jpg', 'Переменные с цветами в Stylus', 'Переменные в Stylus')
+	+project-img-with-caption('/tourcenter/tourcenter-jquery.jpg', 'Скрипт на jQuery', 'jQuery')
