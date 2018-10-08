@@ -5,29 +5,34 @@ block content
 
 		.striped-section
 			.container-fluid
-				h1 Сайт-портфолио Татьяны Фокиной
+				h1 Портфолио Татьяны Фокиной
 				//-My photo & information about me
 				.hero-card
 					.row.row--no-gutters
 						.col--md-4.col--lg-6
 							//-Photo
 							picture
+								// .jpg
 								source(media='(min-width: 992px)' srcset='/imgs/hero-photo.jpg')
 								source(media='(min-width: 768px)' srcset='/imgs/hero-photo@310.jpg')
 								source(media='(min-width: 576px)' srcset='/imgs/hero-photo@741.jpg')
+								// .webp
+								source(media='(min-width: 992px)' srcset='/imgs/hero-photo.webp' type='image/webp')
+								source(media='(min-width: 768px)' srcset='/imgs/hero-photo@310.webp' type='image/webp')
+								source(media='(min-width: 576px)' srcset='/imgs/hero-photo@741.webp' type='image/webp')
 								img.hero-photo(src='/imgs/hero-photo.jpg' srcset="/imgs/hero-photo@2x.jpg 2x" alt='Так выглядит Татьяна')
 						//-Information about me
 						main.col--md-8.col--lg-6.hero-card-inf
 							h2(id='aboutMe') Обо мне
-							p Привет. Меня зовут Татьяна и я верстальщица. Сейчас работаю контент-менеджером и параллельно с основной работой верстаю сайты.
-							p Мне нравится веб. Я люблю учиться, узнавать новое о разработке интерфейсов и приобретать полезные навыки. В будущем хочу стать frontend-разработчиком и создавать доступные, адаптивные и удобные интерфейсы, которые нравятся людям и которыми хочется пользоваться.
-							p Интересуюсь доступностью в вебе, пишу и перевожу <a href="https://medium.com/@fokinatatiana" target='_blank' rel='noopener noreferrer'>статьи</a> об этом.
+							p Привет, меня зовут Татьяна и я верстальщица. Сейчас работаю верстальщицей/контент-менеджером. Параллельно с основной работой верстаю сайты на заказ и для себя.
+							p Мне нравится веб. Я люблю учиться, узнавать новое о разработке интерфейсов и приобретать полезные навыки. В будущем хочу стать <span lang='en'>frontend</span>-разработчиком и создавать доступные, адаптивные и удобные интерфейсы, которые нравятся людям и которыми хочется пользоваться.
+							p Пишу и перевожу <a href='https://medium.com/@fokinatatiana' target='_blank' rel='noopener noreferrer'>статьи о доступности в вебе</a>.
 
 				//-My advantages
 				.advantages
-					+advantage('Всегда на связи')
+					+advantage('Обожаю верстать')
 					+advantage('Дружу с дедлайнами')
-					+advantage('Ставка: 400 ₽/ч')
+					+advantage('Не останавливаюсь на достигнутом')
 
 		.striped-section.striped-section--portfolio
 			.container-fluid
@@ -109,7 +114,7 @@ block content
 						.xp-card__col-1
 							.xp-card__date С 2016
 						.xp-card__col-2.media-body
-							.xp-card__name Контент-менеджер в центре дистанционного обучения "АКАТО"
+							.xp-card__name Контент-менеджер в центре дистанционного обучения «АКАТО».
 							.xp-card__desc
 								p Наполняю сайт компании контентом и актуализирую информацию, занимаюсь вёрсткой рассылочных писем и отдельных страниц, создаю макеты страниц и пишу технические задания, готовлю рекламные веб-баннеры, монтирую видео, веду канал на YouTube и группу во ВКонтакте.<br>
 								p Работаю в условиях многозадачности и плавающих крайних сроков, поэтому авральный режим работы и ведение параллельно нескольких проектов не пугает (даже наоборот).
@@ -122,7 +127,7 @@ block content
 						.xp-card__col-1
 							.xp-card__date 2012–2014
 						.xp-card__col-2.media-body
-							.xp-card__name "Скандинавская школа", Санкт-Петербург
+							.xp-card__name «Скандинавская школа», Санкт-Петербург.
 							.xp-card__desc
 								p Изучала норвежский язык.
 					.xp-card.media
@@ -131,7 +136,7 @@ block content
 						.xp-card__col-2.media-body
 							.xp-card__name Санкт-Петербургский государственный институт культуры
 							.xp-card__desc
-								p Окончила с отличием вуз по специальности "Технолог автоматизированных информационных ресурсов".
+								p Окончила с отличием вуз по специальности «Технолог автоматизированных информационных ресурсов».
 
 				//-Personal qualities
 				h3 Личностные качества

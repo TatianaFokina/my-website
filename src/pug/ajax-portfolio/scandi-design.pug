@@ -1,0 +1,34 @@
+extends ../-templates/portfolio--tpl.pug
+
+
+block title
+	| Сайт про скандинавский дизайн
+
+block desc
+	| <span lang='en'>Scandi Design</span> — сайт для ценителей скандинавского сайта, сделанный с любовью.
+
+block date
+	| Сентябрь 2018
+
+block link
+	- var $link_enabled = true
+	- var $link = 'https://tatianafokina.github.io/scandi-design/'
+	- var $link_title = 'Демо'
+	- var $link2 = 'https://github.com/TatianaFokina/scandi-design'
+	- var $link2_title = 'Репозиторий на GitHub'
+
+block content
+	p Это минималистичный сайт о скандинавском дизайне: мебели, интерьерах, материалах и декоре. Он состоит из нескольких страниц. Это главная и галереи с картинками.
+	p Я верстала только главную страницу.
+	p За динамику на главной отвечает слайдер, эффекты при наведении на превью-картинки в списке галерей и иконки в подвале.
+	p Слайдер состоит из трёх слайдов и написан на <span lang='en'>jQuery</span>. Картинки в галерее и спрайты анимируются с помощью <span lang='en'>CSS</span>-анимации.
+	p Для основной раскладки и блока со списком галерей использовала <span lang='en'>grid</span>. Колонки с фичами свёрстаны на <span lang='en'>flexbox</span>.
+	p При вёрстке сайта не забывала об адаптивности и доступности, поэтому он хорошо выглядит на всех экранах, и его не боятся скринридеры.
+	h4 Инструменты
+	p <span lang='en'>Pug, Stylus, jQuery</span>, собственный <span lang='en'>CSS</span>-фреймворк, <span lang='en'>Gulp, WebStorm, Figma, GitHub, GitHub Pages</span>.
+
+	h4 Скриншоты проекта и примеры кода
+	+project-img-with-caption('/scandi-design/scandi-design-front-page.jpg', 'Главная Scandi Design', 'Скриншот главной страницы Scandi Design')
+	+project-img-with-caption('/scandi-design/scandi-design-pug.jpg', 'Миксин и его вызов в Pug', 'Фрагмент кода на Pug')
+	+project-img-with-caption('/scandi-design/scandi-design-styl.jpg', 'Раскладка на grid в Stylus. Список галерей с картинками', 'Стили для списка галерей на Stylus')
+	+project-img-with-caption('/scandi-design/scandi-design-slider.jpg', 'Фрагмент кода слайдера', 'jQuery-код для слайдера')

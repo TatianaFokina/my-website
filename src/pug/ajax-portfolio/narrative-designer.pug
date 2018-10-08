@@ -5,7 +5,7 @@ block title
 	| Сайт нарративного дизайнера Натальи Тычинской
 
 block desc
-	| Задача: сверстать сайт-портфолио и перенести его на CMS MODX.
+	| Сайт нарративного дизайнера.
 
 block date
 	| Ноябрь 2017
@@ -16,13 +16,16 @@ block link
 	- var $link_title = 'tychinskaya.tk'
 
 block content
-	p Одностраничный сайт с разделами "Обо мне", "Работы" и "Контакты", который разрабатывался совместно с заказчиком на основе его PSD-шаблона.
+	p Этот сайт одностраничный. Он состоит из разделов «Обо мне», «Работы» и «Контакты».
+	p После клика по превью с работой всплывает модальное окно с её описанием. Для этого подключила библиотеку <a href='http://fancyapps.com/fancybox/3/' target='_blank' rel='noopener noreferrer' hreflang='en' lang='en'>Fancybox</a>.
+	p Я не только сверстала сайт, но и перенесла его на <span lang='en'>CMS MODX</span>, чтобы заказчику было проще наполнять его контентом.
+	p Над сайтом работала вместе с заказчиком и <span lang='en'>UX/UI</span> дизайнером, который подготовил <span lang='en'>PSD</span>-макет.
 	h4 Инструменты
-	p Pug, Stylus, jQuery, собственный CSS-фреймворк, Gulp, WebStorm, Axure RP, Adobe Photoshop, Zeplin, Figma.
+	p <span lang='en'>Pug, Stylus, jQuery</span>, собственный <span lang='en'>CSS</span>-фреймворк, <span lang='en'>Gulp, WebStorm, Axure RP, Adobe Photoshop, Zeplin, Figma</span>.
 	h4 Скриншоты проекта и примеры кода
 	+project-img-with-caption('/natashya/nat-all.jpg', 'Сайт со всеми разделами', 'Все разделы сайта')
-	+project-img-with-caption('/natashya/nat-modal.jpg', 'Модальное окно', 'Модальное окно')
-	+project-img-with-caption('/natashya/nat-mobile.jpg', 'Мобильная версия', 'Сайт на мобильниках')
-	+project-img-with-caption('/natashya/nat-phpstorm.jpg', 'Рабочая среда', 'Проект в PhpStorm')
-	+project-img-with-caption('/natashya/nat-tpl.jpg', 'Шаблоны для MODX', 'Шаблоны для MODX')
-	+project-img-with-caption('/natashya/nat-stylpug.jpg', 'Переменные в Stylus и миксин в Pug', 'Миксины и переменные')
+	+project-img-with-caption('/natashya/nat-modal.jpg', 'Модальное окно', 'Модальное окно с одной из работ')
+	+project-img-with-caption('/natashya/nat-mobile.jpg', 'Мобильная версия', 'Сайт на мобильном')
+	+project-img-with-caption('/natashya/nat-phpstorm.jpg', 'Рабочая среда', 'Проект в WebStorm')
+	+project-img-with-caption('/natashya/nat-tpl.jpg', 'Шаблоны для MODX', 'Скриншот шаблонов для MODX')
+	+project-img-with-caption('/natashya/nat-stylpug.jpg', 'Переменные в Stylus и миксин в Pug', 'Примеры миксинов и переменных в Stylus и Pug')

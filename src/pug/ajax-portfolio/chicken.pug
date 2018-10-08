@@ -2,26 +2,26 @@ extends ../-templates/portfolio--tpl.pug
 
 
 block title
-	| Новогодняя CSS-анимация
+	| Новогодняя <span lang='en'>CSS</span>-анимация
 
 block desc
-	| Конкурс организовывала группа "PHP, JavaScript, jQuery, CSS, HTML" во ВКонтакте. Главное условие — создать картинку на чистом CSS без использования JS и SVG.
+	| Символ 2017 года, который я сверстала для конкурса группы <span lang='en'>«PHP, JavaScript, jQuery, CSS, HTML»</span> во ВКонтакте.
 
 block date
 	| 18 декабря 2016
 
 block link
-	- var $link_enabled = true
-	- var $link = 'https://vk.com/topic-42967112_35026841'
-	- var $link_title = 'Страница конкурса'
+	- var $link_enabled = false
+	- var $link = ''
+	- var $link_title = ''
 
 block content
-	p У изображения два состояния: исходное и при наведении (hover-эффекты). В первом состоянии анимирован только снег: все снежинки разделены на три группы, каждая имеет уникальный родительский класс, которому задано свойство animation.
-	p При наведении на изображение поверх него накладывается красный полупрозрачный слой, изменяется цвет глаз цыплёнка, а в левом крыле появляется топор. Во всех приведённых случаях используется псевдоэлемент :hover.
-	p За изменение цвета глаз отвечает свойство animation со значением 3s blink ease-in-out infinite.
-	p Для появления топора изменяются его координаты: по умолчанию он расположен за цыплёнком, а при наведении к классу .axe применяется псевдокласс со свойством transform.
+	p Главное условие конкурса — сделать картинку на чистом <span lang='en'>CSS</span> без использования <span lang='en'>JS</span> и <span lang='en'>SVG</span>. Поэтому цыплёнок — это <span lang='en'>CSS</span>-анимация, никакого мошенничества.
+	p У изображения два состояния: исходное и при наведении.
+	p Сначала анимирован только снег. Все снежинки разделены на три группы с уникальными родительскими классами. Им задано свойство <span lang='en'>animation</code>, которое помогает снегу падать.
+	p Картинка меняется, когда наводишь на неё курсор. Сверху накладывается красный слой, изменяется цвет глаз символа года, а в левом крыле появляется топор. И вот уже цыплёнок не такой безобидный, каким казался раньше. Всё это благодаря псевдоэлементу <code lang='en'>:hover</code>.
 	h4 Инструменты
-	p Pug, Stylus, WebStorm.
-	h4 CodePen
+	p <span lang='en'>Pug, Stylus, PhpStorm</span>.
+	h4 <span lang='en'>CodePen</span>
 	<p data-height="622" data-theme-id="light" data-slug-hash="mMreRr" data-default-tab="result" data-user="tatiana-fokina" data-embed-version="2" data-pen-title="Chicken" class="codepen">.</p>
 	<script defer src="https://production-assets.codepen.io/assets/embed/ei.js"></script>

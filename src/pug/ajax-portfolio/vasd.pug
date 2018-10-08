@@ -5,8 +5,7 @@ block title
 	| Сайт дизайн-бюро Василия Дудина
 
 block desc
-	| Сайт UX-дизайнера и его команды. Передо мной стояло несколько задач: сверстать новую версию адаптивного кросс-браузерного сайта для последующего переноса на CMS MODX, перейти с LESS на Stylus и оптимизировать файлы и графику.
-
+	| Сайт <span lang='en'>UX</span>-дизайнера и его команды.
 block date
 	| Сентябрь 2017
 
@@ -16,14 +15,16 @@ block link
 	- var $link_title = 'vasiliy-dudin.com'
 
 block content
-	p Состоит из страниц "О нас", "Услуги и этапы", "Портфолио" и "Связаться с нами".
-	p Сайт разрабатывался совместно с UX-дизайнером на основе прототипа и дизайн-макета, сделанного в Figma, откуда были экспортированы цветовые схемы, иконки и изображения.
+	p Это многостраничный сайт. Он состоит из страниц «О нас», «Услуги и этапы», «Портфолио» и «Связаться с нами».
+	p От заказчика мне достались легаси-код на <span lang='en'>Pug</span> и <span lang='en'>LESS</span> и новый дизайн-макет в <span lang='en'>Figma</span>. Мне нужно было сверстать новый макет сайта и перенести его на <span lang='en'>CMS MODX</span>.
+	p Я полностью переписала <span lang='en'>HTML</span> и перешла с <span lang='en'>LESS</span> на <span lang='en'>Stylus</span> по просьбе заказчика. В итоге получился компактный макет с оптимизированной графикой, <span lang='en'>CSS</span> и скриптами.
+	p Сайт адаптивный и кроссбраузерный.
 	h4 Инструменты
-	p Pug, Stylus, jQuery, собственный CSS-фреймворк, Gulp, WebStorm, Axure RP, Figma, Jira.
+	p <span lang='en'>Pug, Stylus, jQuery</span>, собственный <span lang='en'>CSS</span>-фреймворк, <span lang='en'>Gulp, PhpStorm, Axure RP, Figma, Jira</span>.
 
 	h4 Скриншоты проекта и примеры кода
-	+project-img-with-caption('/vasd/vasd-front.jpg', 'Главная', 'Главная страница')
+	+project-img-with-caption('/vasd/vasd-front.jpg', 'Главная', 'Главная страница сайта дизайн-бюро')
 	+project-img-with-caption('/vasd/vasd-portfolio.jpg', 'Портфолио', 'Раздел с портфолио')
-	+project-img-with-caption('/vasd/vasd-work.jpg', 'Страница одного проекта', 'Один проект')
-	+project-img-with-caption('/vasd/vasd-phpstorm.jpg', 'Рабочая среда: файлы с переменными и скриптами', 'Рабочая среда')
+	+project-img-with-caption('/vasd/vasd-work.jpg', 'Страница одного проекта', 'Страница с одним проектом')
+	+project-img-with-caption('/vasd/vasd-phpstorm.jpg', 'Рабочая среда: файлы с переменными и скриптами', 'Организация файлов и папок в WebStorm')
 	+project-img-with-caption('/vasd/vasd-styl.jpg', 'Миксины Stylus и массив с брейкпоинтами, именование селекторов по БЭМ и использование ссылок на родительские селекторы', 'Пример использования Stylus')

@@ -5,7 +5,7 @@ block title
 	| Сайт Вадима Давыдова
 
 block desc
-	| Сайт фотографа с портфолио и формами для бронирования фотосессий. Главная задача — разработка адаптивного макета сайта, который легко перенести на CMS MODX.
+	| Сайт фотографа из США, который занимается корпоративной съёмкой.
 
 block date
 	| Январь 2018
@@ -16,19 +16,20 @@ block link
 	- var $link_title = 'vd-photo.com'
 
 block content
-	p Состоит из страниц "About", "Headshot", "Architecture", "Commercial" и "Blog". Также доступно три вида заявок: "Contact Me", "Book Session" и "Get an Estimate", которые различаются набором полей.
-	p Сайт разрабатывался совместно с UX-дизайнером, back-end разработчиком и контент-менеджером на основе прототипа и PSD-макета.
+	p Это портфолио с формами для бронирования фотосессий. Сайт состоит из пяти страниц. Это <span lang='en'>«About», «Headshot», «Architecture», «Commercial»</span> и <span lang='en'>«Blog»</span>.
+	p После того, как сверстала адаптивный макет, перенесла его на <span lang='en'>CMS MODX</span>.
+	p Создавала сайт в команде с <span lang='en'>UX/UI</span> дизайнером, <span lang='en'>backend</span>-разработчиком и контент-менеджером.
 	h4 Инструменты
-	p Pug, Stylus, собственный CSS-фреймворк, Gulp, PhpStorm, Axure RP, Adobe Photoshop, Zeplin, Trello.
+	p <span lang='en'>Pug, Stylus</span>, собственный <span lang='en'>CSS</span>-фреймворк, <span lang='en'>Gulp, PhpStorm, Axure RP, Adobe Photoshop, Zeplin, Trello</span>.
 
 	h4 Скриншоты проекта и примеры кода
-	+project-img-with-caption('/vd-photo/vd-commercial.jpg', 'Страница "Commercial"', 'commercial')
-	+project-img-with-caption('/vd-photo/code-phpstorm-vd.jpg', 'Рабочая среда', 'рабочая среда')
-	+project-img-with-caption('/vd-photo/vd-form.jpg', 'Форма заявки "Book Session"', 'форма заявки')
+	+project-img-with-caption('/vd-photo/vd-commercial.jpg', 'Страница «Commercial»', 'Скриншот страницы Commercial')
+	+project-img-with-caption('/vd-photo/code-phpstorm-vd.jpg', 'Рабочая среда', 'Рабочая среда — WebStorm')
+	+project-img-with-caption('/vd-photo/vd-form.jpg', 'Форма заявки «Book Session»', 'Скриншот с формой Book Session')
 	.row
 		.col--lg-4
-			+project-img-with-caption('/vd-photo/vd-blog-adaptive.jpg', 'Пост на мобильном устройстве', 'пост из блога на мобильнике')
+			+project-img-with-caption('/vd-photo/vd-blog-adaptive.jpg', 'Пост на мобильном устройстве', 'Пост из блога на мобильнике')
 		.col--lg-4
-			+project-img-with-caption('/vd-photo/vd-menu-hamburger.jpg', 'Меню-гамбургер', 'Меню-гамбургер')
-	+project-img-with-caption('/vd-photo/code-pug-mixins-vd.jpg', 'Хлебные крошки (миксин Pug)', 'Использование Pug')
-	+project-img-with-caption('/vd-photo/code-styl-variables-interp-vd.jpg', 'Переменные, интерполяции и медиа-запросы Stylus', 'Использование Stylus')
+			+project-img-with-caption('/vd-photo/vd-menu-hamburger.jpg', 'Меню-гамбургер', 'Меню-гамбургер на мобильном')
+	+project-img-with-caption('/vd-photo/code-pug-mixins-vd.jpg', 'Миксин Pug для хлебных крошек', 'Использование Pug для создания хлебных крошек')
+	+project-img-with-caption('/vd-photo/code-styl-variables-interp-vd.jpg', 'Переменные, интерполяции и медиа-запросы в Stylus', 'Переменные, интерполяции и медиа-запросы в Stylus')

@@ -1,10 +1,20 @@
+$footer-text-color = rgba(255, 255, 255, 0.3)
+
 footer
 	padding 38px
 	background-color #263238
 	text-align center
-	color rgba(255, 255, 255, 0.3)
+	color $footer-text-color
 
-
+.footer-github a
+	color $footer-text-color
+	border-bottom-color alpha($footer-text-color, $thin-underline-opacity)
+	&:hover
+		color lighten(#636b63, 20)
+		border-bottom-color @color
+	&:active
+		color darken($footer-text-color, 35%)
+		border-bottom-color @color
 
 
 // Sticky footer
