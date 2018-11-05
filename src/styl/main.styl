@@ -283,34 +283,38 @@
 	align-items center
 	&:before
 		margin-right 0.5rem // 8px
-		link-icon($width: 28px, $height: $width, $bg-img: url('../imgs/icons/contacts-sprite.svg'), $bg-size: auto 28px)
+		link-icon($width: 28px, $height: $width, $bg-img: url('../imgs/icons/contacts-sprite.svg'), $bg-size: cover)
 	&--mail:before
 		background-position 0 0
 	&--telegram:before
-		background-position-x -29px
+		background-position-x -34px
 	&--skype:before
-		background-position-x -58px
+		background-position-x -68px
 	&--fb:before
-		background-position-x -87px
+		background-position-x -101px
+	&--twitter:before
+		background-position-x -135px
 	&--hh:before
-		background-position-x -116px
+		background-position-x -169px
 	&--github:before
-		background-position-x -145px
+		background-position-x -203px
 	&--fl:before
-		background-position-x -174px
+		background-position-x -237px
 		
 	// Hover
 	&--mail:hover:before
-		background-position -203px
+		background-position -270px
 	&--telegram:hover:before
-		background-position-x -232px
+		background-position-x -304px
 	&--skype:hover:before
-		background-position-x -261px
+		background-position-x -338px
 	&--fb:hover:before
-		background-position-x -290px
+		background-position-x -372px
+	&--twitter:hover:before
+		background-position-x -406px
 	&--hh:hover:before
-		background-position-x -319px
+		background-position-x -439px
 	&--github:hover:before
-		background-position-x -348px
+		background-position-x -473px
 	&--fl:hover:before
-		background-position-x -377px
+		background-position-x -507px
