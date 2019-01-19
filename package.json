@@ -9,12 +9,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.18.12",
+    "autoprefixer": "^9.4.5",
+    "browser-sync": "^2.26.3",
     "css-mqpacker": "^6.0.2",
     "del": "^3.0.0",
-    "graceful-fs": "^4.1.11",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
+    "fs-extra": "^7.0.1",
+    "graceful-fs": "^4.1.15",
+    "gulp": "^4.0.0",
     "gulp-cache": "^0.4.6",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
@@ -22,15 +23,15 @@
     "gulp-imagemin": "^3.3.0",
     "gulp-modify-css-urls": "^0.2.2",
     "gulp-notify": "^3.0.0",
-    "gulp-plumber": "^1.1.0",
+    "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^7.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-pug-beautify": "0.0.1",
     "gulp-purifycss": "^0.2.0",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.4.0",
     "gulp-replace": "^0.6.1",
     "gulp-stylus": "^2.6.0",
-    "gulp-uglify": "^3.0.0",
+    "gulp-uglify": "^3.0.1",
     "imagemin-gifsicle": "^5.1.0",
     "imagemin-jpegtran": "^5.0.2",
     "imagemin-optipng": "^5.2.1",
@@ -42,7 +43,6 @@
     "postcss-svgo": "^2.1.6"
   },
   "dependencies": {
-    "fs": "0.0.1-security",
     "postcss-merge-rules": "^2.1.2"
   }
 }
